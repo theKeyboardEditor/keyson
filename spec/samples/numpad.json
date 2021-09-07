@@ -1,0 +1,362 @@
+{
+	"Name": "Numpad",
+	"Author": "cest73",
+	"License": "CC",
+	"Comment": "A common numpad block layout",
+	"Pallete": {
+		"Name:": "Kids Crayons 16",
+		"URL:": "https://some.site.org",
+		"Color Matching Profile": "generic",
+		"Size": "16",
+		"Colors": [ 
+		{"black"  : 0x000000},
+		{"white"  : 0xffffff},
+		{"red"    : 0xff0000},
+		{"lime"   : 0x00ff00},
+		{"blue"   : 0x0000ff},
+		{"yellow" : 0xffff00},
+		{"cyan"   : 0x00ffff},
+		{"magenta": 0xff00ff},
+		{"silver" : 0x808080},
+		{"gray"   : 0x404040},
+		{"maroon" : 0x800000},
+		{"olive"  : 0x808000},
+		{"green"  : 0x008000},
+		{"purple" : 0x800080},
+		{"teal"   : 0x008080},
+		{"navy"   : 0x000080},
+		]
+	},
+	"Keyboard": {
+		"1U Key Step": [19.05,19.05],
+		"Stabilizer type": "Cerry",
+		"Switch type": "Cherry MX/Gateron/Kailh",
+		"1U Cap size": [18.5,18.5],
+		"Units": "mm",
+		"Amount of Units": 1,
+		[ "Unit": {
+			"Unit ID": 1
+			"Designator": "Numpad"
+			"Size": "17"
+			"Keys": { [
+				{
+					"ID": 0
+					"Position": [0,0],
+					"Stabilizer": "None",
+					"Angle": [0.0],
+					"Shape": "1U",
+					"Relative Rotation Center": [0,0],
+					"Body Color":"white",
+					"Main Label": {
+						"Num Lock",
+						"Size": "9px", 
+						"Color": "black", 
+						"Position": [11,11], 
+					}
+					"Sublabels": {}
+				},
+				{
+					"ID": 1
+					"Position": [1,0],
+					"Stabilizer": "None",
+					"Angle": [0.0],
+					"Shape": "1U",
+					"Relative Rotation Center": [0,0],
+					"Body Color":"white",
+					"Main Label": {
+						"/",
+						"Size": "9px", 
+						"Color": "black", 
+						"Position": [11,11], 
+					}
+					"Sublabels": {}
+				},
+				{
+					"ID": 2
+					"Position": [2,0],
+					"Stabilizer": "None",
+					"Angle": [0.0],
+					"Shape": "1U",
+					"Relative Rotation Center": [0,0],
+					"Body Color":"white",
+					"Main Label": {
+						"*",
+						"Size": "9px", 
+						"Color": "black", 
+						"Position": [11,11], 
+					}
+					"Sublabels": {}
+				},
+				{
+					"ID": 3
+					"Position": [3,0],
+					"Stabilizer": "None",
+					"Angle": [0.0],
+					"Shape": "1U",
+					"Relative Rotation Center": [0,0],
+					"Body Color":"white",
+					"Main Label": {
+						"-",
+						"Size": "9px", 
+						"Color": "black", 
+						"Position": [11,11], 
+					}
+					"Sublabels": {}
+				},
+				{
+					"ID": 4
+					"Position": [0,1],
+					"Stabilizer": "None",
+					"Angle": [0.0],
+					"Shape": "1U",
+					"Relative Rotation Center": [0,0],
+					"Body Color":"white",
+					"Main Label": {
+						"7",
+						"Size": "9px", 
+						"Color": "black", 
+						"Position": [11,11], 
+					}
+					"Sublabels": {"Size": "7px", "Color": "black",
+						"", "", "",
+						"", "", "",
+						"Home", "", ""
+					}
+				},
+				{
+					"ID": 5
+					"Position": [1,1],
+					"Stabilizer": "None",
+					"Angle": [0.0],
+					"Shape": "1U",
+					"Relative Rotation Center": [0,0],
+					"Body Color":"white",
+					"Main Label": {
+						"8",
+						"Size": "9px", 
+						"Color": "black", 
+						"Position": [11,11], 
+					}
+					"Sublabels": {"Size": "7px", "Color": "black",
+						"", "", "",
+						"", "", "",
+						"&uarr;", "", ""
+					}
+				},
+				{
+					"ID": 6
+					"Position": [2,1],
+					"Stabilizer": "None",
+					"Angle": [0.0],
+					"Shape": "1U",
+					"Relative Rotation Center": [0,0],
+					"Body Color":"white",
+					"Main Label": {
+						"9",
+						"Size": "9px", 
+						"Color": "black", 
+						"Position": [11,11], 
+					}
+					"Sublabels": {"Size": "7px", "Color": "black",
+						"", "", "",
+						"", "", "",
+						"PgUp", "", ""
+					}
+				},
+				{
+					"ID": 7
+					"Position": [3,1],
+					"Stabilizer": "2U",
+					"Angle": [0.0],
+					"Shape": "2U vertical",
+					"Relative Rotation Center": [0,0],
+					"Body Color":"white",
+					"Main Label": {
+						"+",
+						"Size": "7px", 
+						"Color": "black", 
+						"Position": [11,42], 
+					}
+					"Sublabels": {}
+				},
+				{
+					"ID": 8
+					"Position": [0,2],
+					"Stabilizer": "None",
+					"Angle": [0.0],
+					"Shape": "1U",
+					"Relative Rotation Center": [0,0],
+					"Body Color":"white",
+					"Main Label": {
+						"4",
+						"Size": "9px", 
+						"Color": "black", 
+						"Position": [11,11], 
+					}
+					"Sublabels": {"Size": "7px", "Color": "black",
+						"", "", "",
+						"", "", "",
+						"&larr;", "", ""
+					}
+				},
+				{
+					"ID": 9
+					"Position": [1,2],
+					"Stabilizer": "None",
+					"Angle": [0.0],
+					"Shape": "1U",
+					"Relative Rotation Center": [0,0],
+					"Features": "Homing",
+					"Body Color":"white",
+					"Main Label": {
+						"5",
+						"Size": "9px", 
+						"Color": "black", 
+						"Position": [11,11], 
+					}
+					"Sublabels": {}
+				},
+				{
+					"ID": 10
+					"Position": [2,2],
+					"Stabilizer": "None",
+					"Angle": [0.0],
+					"Shape": "1U",
+					"Relative Rotation Center": [0,0],
+					"Body Color":"white",
+					"Main Label": {
+						"6",
+						"Size": "9px", 
+						"Color": "black", 
+						"Position": [11,11], 
+					}
+					"Sublabels": {"Size": "7px", "Color": "black",
+						"", "", "",
+						"", "", "",
+						"&rarr;", "", ""
+					}
+				},
+				{
+					"ID": 11
+					"Position": [0,3],
+					"Stabilizer": "None",
+					"Angle": [0.0],
+					"Shape": "1U",
+					"Relative Rotation Center": [0,0],
+					"Body Color":"white",
+					"Main Label": {
+						"1",
+						"Size": "9px", 
+						"Color": "black", 
+						"Position": [11,11], 
+					}
+					"Sublabels": {"Size": "7px", "Color": "black",
+						"", "", "",
+						"", "", "",
+						"End", "", ""
+					}
+				},
+				{
+					"ID": 12
+					"Position": [1,3],
+					"Stabilizer": "None",
+					"Angle": [0.0],
+					"Shape": "1U",
+					"Relative Rotation Center": [0,0],
+					"Body Color":"white",
+					"Main Label": {
+						"2",
+						"Size": "9px", 
+						"Color": "black", 
+						"Position": [11,11], 
+					}
+					"Sublabels": {"Size": "7px", "Color": "black",
+						"", "", "",
+						"", "", "",
+						"&darr;", "", ""
+					}
+				},
+				{
+					"ID": 13
+					"Position": [2,3],
+					"Stabilizer": "None",
+					"Angle": [0.0],
+					"Shape": "1U",
+					"Relative Rotation Center": [0,0],
+					"Body Color":"white",
+					"Main Label": {
+						"3",
+						"Size": "9px", 
+						"Color": "black", 
+						"Position": [11,11], 
+					}
+					"Sublabels": {"Size": "7px", "Color": "black",
+						"", "", "",
+						"", "", "",
+						"PgDn", "", ""
+					}
+				},
+				{
+					"ID": 14
+					"Position": [3,3],
+					"Stabilizer": "2U",
+					"Angle": [0.0],
+					"Shape": "2U vertical",
+					"Relative Rotation Center": [0,0],
+					"Body Color":"white",
+					"Main Label": {
+						"Enter",
+						"Size": "7px", 
+						"Color": "black", 
+						"Position": [11,42], 
+					}
+					"Sublabels": {}
+				},
+				{
+					"ID": 15
+					"Position": [0,4],
+					"Stabilizer": "2U",
+					"Angle": [0.0],
+					"Shape": "2U",
+					"Relative Rotation Center": [0,0],
+					"Body Color":"white",
+					"Main Label": {
+						"0",
+						"Size": "9px", 
+						"Color": "black", 
+						"Position": [11,11], 
+					}
+					"Sublabels": {"Size": "7px", "Color": "black",
+						"", "", "",
+						"", "", "",
+						"Ins", "", ""
+					}
+				},
+				{
+					"ID": 16
+					"Position": [2,4],
+					"Stabilizer": "None",
+					"Angle": [0.0],
+					"Shape": "1U",
+					"Relative Rotation Center": [0,0],
+					"Body Color":"white",
+					"Main Label": {
+						".",
+						"Size": "9px", 
+						"Color": "black", 
+						"Position": [11,11], 
+					}
+					"Sublabels": {"Size": "7px", "Color": "black",
+						"", "", "",
+						"", "", "",
+						"Del", "", ""
+					}
+				}
+				]
+			}
+		}
+		]
+	}
+}
+
+
