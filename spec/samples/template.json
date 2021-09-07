@@ -21,7 +21,6 @@
 		"Stabilizer type": "Costar",
 		"Switch type": ["ALPS/Matias/APC","Cherry MX/Gateron/Kailh","Choc V1/V2", "Kailh X Switch", "Gateron low profile"],
 		"1U Cap size": [18.5,18.5],
-		"Font":"sans",
 		"Units": ["mm","Inch"],
 		"Case Color": "white",
 		"Keys Color": "white",
