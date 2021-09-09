@@ -22,13 +22,13 @@ class Keyson {
 	// static vars (library local)
 
 	// public vars (the load and save content and flags)
-	public var Keyboard: // The whole object the file can hold
-	public var Name:String;
-	public var Author:String;
-	public var License:String;
-	public var Comment:String;
-	public var Palette= Colors()
-	public var Board= Keyboard()
+	public var Keyboard: Keyboard // The whole object the file can hold
+	public var Name: String;
+	public var Author: String;
+	public var License: String;
+	public var Comment: String;
+	public var Palette: Colors
+	public var Board: Keyboard
 
 	// vars (local to the lib and file parsing)
 	// public functions (we call from outside)
@@ -51,87 +51,85 @@ class Keyson {
 
 }
 
-public class Pallete() {
-	Name:String;
-	URL:String;
-	ColorMatchingProfile:String;
-	Size:Int;
+class Pallete {
+	var name:String;
+	var url:String;
+	var colorMatchingProfile:String;
+	var size:Int;
 }
 
-class Colors() [ {
+class Colors {
 	var color:String;
 	var value:Int;
-	public inline function new (color:String, value:Int) {
+	
+	public function new(color:String, value:Int) {
 		this.color = color;
 		this.value = value;
 	}
 }
-]
 
 class Keyboard() {
-	var KeyStep:<Array>Float;
-	var StabilizerType:String;
-	var SwitchType:String;
-	var CapSize:<array>Float;
-	var Units:String;
-	var CaseColor:String;
-	var KeysColor:String;
-	var LabelFont:String;
-	var SublabelFont:String;
-	var LabelFontSize:Int;
-	var SublabelFontSize:Int;
-	var LabelColor:String;
-	var LabelPosition:<array>Float;
-	var SublabelColor:String;
+	var keyStep:<Array>Float;
+	var stabilizerType:String;
+	var switchType:String;
+	var capSize:<array>Float;
+	var units:String;
+	var caseColor:String;
+	var keysColor:String;
+	var labelFont:String;
+	var sublabelFont:String;
+	var labelFontSize:Int;
+	var sublabelFontSize:Int;
+	var labelColor:String;
+	var labelPosition:<array>Float;
+	var sublabelColor:String;
+	var profile:String;
+	var keySculpt:String;
+	var amountOfUnits:Int;
+	var units:<Array>
+}
+
+class Unit {
+	var unitID:Int;
+	var designator:String;
+	var size:Int;
+	var keys:<Array>
+}
+
+class Key {
+	var id:Int;
+	var position:<Array>Int;
+	var stabilizer:String;
+	var angle:Float;
+	var shape:String;
+	var labelFont:String;
+	var relativeRotationCenter:<array>Float;
+	var features:<Array>String;
+	var steppedTop:Float;
+	var homingFeature:String;
+	var keysColor:String;
+	var label = KeyLabel
+	var sublabels = Sublabel
+}
+
+class KeyLabel {
+}
+
+class Sublabels {
+}
+
+class LEDFeature {
+	var Diameter: Float;
+}
+
+class EncoderFeature {
+	var diameter: Float;
+	var barrelSize: Float;
+	var profile:String;
+	var type:String;
+}
+
+class TrackpointFeature {
+	var Diameter:Int;
 	var Profile:String;
-	var KeySculpt:String;
-	var AmountOfUnits:Int;
-	var Units:<Array>
-
 }
-
-class Unit() {
-	var UnitID:Int;
-	var Designator:String;
-	var Size:Int;
-	var Keys:<Array>
-}
-
-class Key() {
-	var ID:Int;
-	var Position:<Array>Int;
-	var Stabilizer:String;
-	var Angle:Float;
-	var Shape:String;
-	var LabelFont:String;
-	var Relative Rotation Center:<array>Float;
-	var Features:<Array>String;
-	var SteppedTop:Float;
-	var HomingFeature:String;
-	var KeysColor:String;
-	var Label = KeyLabel
-	var Sublabels = Sublabel
-}
-
-class KeyLabel() {
-}
-
-class Sublabels() {
-}
-
-class LEDFeature() {
-	var Diameter:Float;
-}
-
-class EncoderFeature() {
-	Diameter:Float;
-	Barrel Size:Float;
-	Profile:String;
-	Type:String;
-}
-
-class Trackpoint Feature() {
-	Diameter:Int;
-	Profile:String;
-}
-
