@@ -6,8 +6,8 @@ package;
  */
 @:structInit
 typedef KeysonOptions = {
-	// file name
-	var fileName:String;
+	// optional (generic?) palette name for new layout
+	var paletteName:String;
 }
 
 class Keyson {
