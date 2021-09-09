@@ -20,13 +20,13 @@ class Keyson {
 	// static vars (library local)
 
 	// public vars (the load and save content and flags)
-	public var keyboard: Keyboard // The whole object the file can hold
-	public var name: String;
-	public var author: String;
-	public var license: String;
-	public var comment: String;
-	public var palette: Colors
-	public var board: Keyboard
+	public var keyboard:Keyboard // The whole object the file can hold
+	public var name:String;
+	public var author:String;
+	public var license:String;
+	public var comment:String;
+	public var palette:Colors
+	public var board:Keyboard
 
 	// vars (local to the lib and file parsing)
 	// public functions (we call from outside)
@@ -95,7 +95,7 @@ class Unit {
 }
 
 class Key {
-	var id:Int;
+	var keyID:Int;
 	var position:<Array>Int;
 	var stabilizer:String;
 	var angle:Float;
@@ -106,8 +106,8 @@ class Key {
 	var steppedTop:Float;
 	var homingFeature:String;
 	var keysColor:String;
-	var label = KeyLabel
-	var sublabels = Sublabel
+	var label:KeyLabel
+	var sublabels:Sublabel
 }
 
 class KeyLabel {
@@ -117,12 +117,12 @@ class Sublabels {
 }
 
 class LEDFeature {
-	var diameter: Float;
+	var diameter:Float;
 }
 
 class EncoderFeature {
-	var diameter: Float;
-	var barrelSize: Float;
+	var diameter:Float;
+	var barrelSize:Float;
 	var profile:String;
 	var type:String;
 }
