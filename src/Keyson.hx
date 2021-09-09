@@ -8,11 +8,9 @@ package keyson;
 @:structInit
 typedef KeysonOptions = {
 	// file name
-	FileName:String;
+	fileName:String;
 	// URL (with login data)
-	NetLocation
-	// calling data structure/object
-	Keeb
+	netLocation:String;
 }
 
 class Keyson {
@@ -22,13 +20,13 @@ class Keyson {
 	// static vars (library local)
 
 	// public vars (the load and save content and flags)
-	public var Keyboard: Keyboard // The whole object the file can hold
-	public var Name: String;
-	public var Author: String;
-	public var License: String;
-	public var Comment: String;
-	public var Palette: Colors
-	public var Board: Keyboard
+	public var keyboard: Keyboard // The whole object the file can hold
+	public var name: String;
+	public var author: String;
+	public var license: String;
+	public var comment: String;
+	public var palette: Colors
+	public var board: Keyboard
 
 	// vars (local to the lib and file parsing)
 	// public functions (we call from outside)
@@ -119,7 +117,7 @@ class Sublabels {
 }
 
 class LEDFeature {
-	var Diameter: Float;
+	var diameter: Float;
 }
 
 class EncoderFeature {
@@ -130,6 +128,6 @@ class EncoderFeature {
 }
 
 class TrackpointFeature {
-	var Diameter:Int;
-	var Profile:String;
+	var diameter:Int;
+	var profile:String;
 }
