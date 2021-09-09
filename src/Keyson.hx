@@ -1,43 +1,39 @@
-package keyson;
+package;
 
 /*
  * theKeyboardEditor file interfacing library
  * https://github.com/theKeyboardEditor/keyson
  */
-
 @:structInit
 typedef KeysonOptions = {
 	// file name
-	fileName:String;
+	var fileName:String;
 }
 
 class Keyson {
 	// public static vars (once per session run)
-
 	// static vars (library local)
-
 	// public vars (the load and save content and flags)
-	public var keyboard:Keyboard // The whole object the file can hold
+	public var keyboard:Keyboard; // The whole object the file can hold
 	public var name:String;
 	public var author:String;
 	public var license:String;
 	public var comment:String;
-	public var colorTable:Palette
-	public var board:Keyboard
+	public var colorTable:Palette;
+	public var board:Keyboard;
 
 	// vars (local to the lib and file parsing)
 	// public functions (we call from outside)
-	public function new(opts: KeysonOptions) { // generic empty layout
+	public function new(opts:KeysonOptions) { // generic empty layout
 	}
 
-	public function get(opts: KeysonOptions) { // read a string in
+	public function get(opts:KeysonOptions) { // read a string in
 	}
 
-	public function cat(opts: KeysonOptions) { // cat a string out 
+	public function cat(opts:KeysonOptions) { // cat a string out
 	}
 
 	// functions (library local functions)
-
 }
 
 class Palette {
@@ -45,25 +41,25 @@ class Palette {
 	var url:String;
 	var colorMatchingProfile:String;
 	var size:Int;
-	var squashes:Array<Color>
+	var squashes:Array<Color>;
 }
 
 class Color {
 	var color:String;
 	var value:Int;
-	
+
 	public function new(color:String, value:Int) {
 		this.color = color;
 		this.value = value;
 	}
 }
 
-class Keyboard() {
+class Keyboard {
 	var keyStep:Array<Float>;
 	var stabilizerType:String;
 	var switchType:String;
-	var capSize:<array>Float;
-	var units:String;
+	var capSize:Array<Float>;
+	var unitAmount:String;
 	var caseColor:String;
 	var keysColor:String;
 	var labelFont:String;
@@ -71,19 +67,19 @@ class Keyboard() {
 	var labelFontSize:Int;
 	var sublabelFontSize:Int;
 	var labelColor:String;
-	var labelPosition:<array>Float;
+	var labelPosition:Array<Float>;
 	var sublabelColor:String;
 	var profile:String;
 	var keySculpt:String;
 	var amountOfUnits:Int;
-	var units:<Array>Unit
+	var units:Array<Unit>;
 }
 
 class Unit {
 	var unitID:Int;
 	var designator:String;
 	var size:Int;
-	var keys:<Array>Key;
+	var keys:Array<Key>;
 }
 
 class Key {
@@ -93,7 +89,7 @@ class Key {
 	var angle:Float;
 	var shape:String;
 	var labelFont:String;
-	var relativeRotationCenter:<array>Float;
+	var relativeRotationCenter:Array<Float>;
 	var features:Array<String>;
 	var steppedTop:Float;
 	var homingFeature:String;
@@ -102,24 +98,24 @@ class Key {
 	var sublabels:Sublabel;
 }
 
-class KeyLabel {					// the global or define their own
+class KeyLabel { // the global or define their own
 	var glyph:String;
 }
 
-class Sublabel {					// the global or define their own
-	var positions:Array<String>;	// the 9 positions on a key
+class Sublabel { // the global or define their own
+	var positions:Array<String>; // the 9 positions on a key
 	// TODO do we want an lumped or fine grained acces to sublabels?
 }
 
 class LEDFeature {
-	var diameter:Float;				// diameter usually 3.0 or 5.0 mm
+	var diameter:Float; // diameter usually 3.0 or 5.0 mm
 }
 
 class EncoderFeature {
-	var diameter:Float;				// in unit size
-	var barrelSize:Float;			// height/length in units size
-	var profile:String;				// "Round" "Curled" "Ribbed"
-	var type:String;				// "Upright" "Barrel X" "Barrel Y"
+	var diameter:Float; // in unit size
+	var barrelSize:Float; // height/length in units size
+	var profile:String; // "Round" "Curled" "Ribbed"
+	var type:String; // "Upright" "Barrel X" "Barrel Y"
 }
 
 class TrackpointFeature {
