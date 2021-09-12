@@ -1,0 +1,25 @@
+name: keyson
+on:
+  push:
+    branches:
+      - master
+      - staging
+      - trying
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          submodules: 'recursive'
+
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@v1.1.5
+        with:
+          haxe-version: 4.2.3
+
+      - name: Test with the interp target
+        run: haxe Test.hxml
