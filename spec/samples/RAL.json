@@ -1,0 +1,221 @@
+"Palette" {
+	"name": "RAL",
+	"url": "https://www.easycalculation.com/colorconverter/ral-to-hex-table.php",
+	"colorMatchingProfile": "generic",
+	"size": "213",
+	"squashes": [
+		{"(RAL1000)Green Beige":"#BEBD7F"}
+		{"(RAL1001)Beige":"#C2B078"}
+		{"(RAL1002)Sand Yellow":"#C6A664"}
+		{"(RAL1003)Signal Yellow":"#E5BE01"}
+		{"(RAL1004)Golden Yellow":"#CDA434"}
+		{"(RAL1005)Honey Yellow":"#A98307"}
+		{"(RAL1006)Maize Yellow":"#E4A010"}
+		{"(RAL1007)Daffodil Yellow":"#DC9D00"}
+		{"(RAL1011)Brown Beige":"#8A6642"}
+		{"(RAL1012)Lemon Yellow":"#C7B446"}
+		{"(RAL1013)Oyster White":"#EAE6CA"}
+		{"(RAL1014)Ivory":"#E1CC4F"}
+		{"(RAL1015)Light Ivory":"#E6D690"}
+		{"(RAL1016)Sulfur Yellow":"#EDFF21"}
+		{"(RAL1017)Saffron Yellow":"#F5D033"}
+		{"(RAL1018)Zinc Yellow":"#F8F32B"}
+		{"(RAL1019)Grey Beige":"#9E9764"}
+		{"(RAL1020)Olive Yellow":"#999950"}
+		{"(RAL1021)Rape Yellow":"#F3DA0B"}
+		{"(RAL1023)Traffic Yellow":"#FAD201"}
+		{"(RAL1024)Ochre Yellow":"#AEA04B"}
+		{"(RAL1026)Luminous Yellow":"#FFFF00"}
+		{"(RAL1027)Curry":"#9D9101"}
+		{"(RAL1028)Melon Yellow":"#F4A900"}
+		{"(RAL1032)Broom Yellow":"#D6AE01"}
+		{"(RAL1033)Dahlia Yellow":"#F3A505"}
+		{"(RAL1034)Pastel Yellow":"#EFA94A"}
+		{"(RAL1035)Pearl Beige(Metalic Color)":"#6A5D4D"}
+		{"(RAL1036)Pearl Gold(Metalic Color)":"#705335"}
+		{"(RAL1037)Sun Yellow":"#F39F18"}
+		{"(RAL2000)Yellow Orange":"#ED760E"}
+		{"(RAL2001)Red Orange":"#C93C20"}
+		{"(RAL2002)Vermilion":"#CB2821"}
+		{"(RAL2003)Pastel Orange":"#FF7514"}
+		{"(RAL2004)Pure Orange":"#F44611"}
+		{"(RAL2005)Luminous Orange":"#FF2301"}
+		{"(RAL2007)Luminous Bright Orange":"#FFA420"}
+		{"(RAL2008)Bright Red Orange":"#F75E25"}
+		{"(RAL2009)Traffic Orange":"#F54021"}
+		{"(RAL2010)Signal Orange":"#D84B20"}
+		{"(RAL2011)Deep Orange":"#EC7C26"}
+		{"(RAL2012)Salmon Orange":"#E55137"}
+		{"(RAL2013)Pearl Orange(Metalic Color)":"#C35831"}
+		{"(RAL3000)Flame Red":"#AF2B1E"}
+		{"(RAL3001)Signal Red":"#A52019"}
+		{"(RAL3002)Carmine Red":"#A2231D"}
+		{"(RAL3003)Ruby Red":"#9B111E"}
+		{"(RAL3004)Purple Red":"#75151E"}
+		{"(RAL3005)Wine Red":"#5E2129"}
+		{"(RAL3007)Black Red":"#412227"}
+		{"(RAL3009)Oxide Red":"#642424"}
+		{"(RAL3011)Brown Red":"#781F19"}
+		{"(RAL3012)Beige Red":"#C1876B"}
+		{"(RAL3013)Tomato Red":"#A12312"}
+		{"(RAL3014)Antique Pink":"#D36E70"}
+		{"(RAL3015)Light Pink":"#EA899A"}
+		{"(RAL3016)Coral Red":"#B32821"}
+		{"(RAL3017)Rose":"#E63244"}
+		{"(RAL3018)Strawberry Red":"#D53032"}
+		{"(RAL3020)Traffic Red":"#CC0605"}
+		{"(RAL3022)Salmon Pink":"#D95030"}
+		{"(RAL3024)Luminous Red":"#F80000"}
+		{"(RAL3026)Luminous Bright Red":"#FE0000"}
+		{"(RAL3027)Raspberry Red":"#C51D34"}
+		{"(RAL3028)Pure Red":"#CB3234"}
+		{"(RAL3031)Orient Red":"#B32428"}
+		{"(RAL3032)Pearl Ruby Red(Metalic Color)":"#721422"}
+		{"(RAL3033)Pearl Pink(Metalic Color)":"#B44C43"}
+		{"(RAL4001)Red Lilac":"#6D3F5B"}
+		{"(RAL4002)Red Violet":"#922B3E"}
+		{"(RAL4003)Heather Violet":"#DE4C8A"}
+		{"(RAL4004)Claret Violet":"#641C34"}
+		{"(RAL4005)Blue Lilac":"#6C4675"}
+		{"(RAL4006)Traffic Purple":"#A03472"}
+		{"(RAL4007)Purple Violet":"#4A192C"}
+		{"(RAL4008)Signal Violet":"#924E7D"}
+		{"(RAL4009)Pastel Violet":"#A18594"}
+		{"(RAL4010)Telemagenta":"#CF3476"}
+		{"(RAL4011)Pearl Violet(Metalic Color)":"#8673A1"}
+		{"(RAL4012)Pearl Black Berry(Metalic Color)":"#6C6874"}
+		{"(RAL5000)Violet Blue":"#354D73"}
+		{"(RAL5001)Green Blue":"#1F3438"}
+		{"(RAL5002)Ultramarine Blue":"#20214F"}
+		{"(RAL5003)Saphire Blue":"#1D1E33"}
+		{"(RAL5004)Black Blue":"#18171C"}
+		{"(RAL5005)Signal Blue":"#1E2460"}
+		{"(RAL5007)Brillant Blue":"#3E5F8A"}
+		{"(RAL5008)Grey Blue":"#26252D"}
+		{"(RAL5009)Azure Blue":"#025669"}
+		{"(RAL5010)Gentian Blue":"#0E294B"}
+		{"(RAL5011)Steel Blue":"#231A24"}
+		{"(RAL5012)Light Blue":"#3B83BD"}
+		{"(RAL5013)Cobalt Blue":"#1E213D"}
+		{"(RAL5014)Pigeon Blue":"#606E8C"}
+		{"(RAL5015)Sky Blue":"#2271B3"}
+		{"(RAL5017)Traffic Blue":"#063971"}
+		{"(RAL5018)Turquoise Blue":"#3F888F"}
+		{"(RAL5019)Capri Blue":"#1B5583"}
+		{"(RAL5020)Ocean Blue":"#1D334A"}
+		{"(RAL5021)Water Blue":"#256D7B"}
+		{"(RAL5022)Night Blue":"#252850"}
+		{"(RAL5023)Distant Blue":"#49678D"}
+		{"(RAL5024)Pastel Blue":"#5D9B9B"}
+		{"(RAL5025)Pearl Gentian Blue(Metalic Color)":"#2A6478"}
+		{"(RAL5026)Pearl Night Blue(Metalic Color)":"#102C54"}
+		{"(RAL6000)Patina Green":"#316650"}
+		{"(RAL6001)Emerald Green":"#287233"}
+		{"(RAL6002)Leaf Green":"#2D572C"}
+		{"(RAL6003)Olive Green":"#424632"}
+		{"(RAL6004)Blue Green":"#1F3A3D"}
+		{"(RAL6005)Moss Green":"#2F4538"}
+		{"(RAL6006)Grey Olive":"#3E3B32"}
+		{"(RAL6007)Bottle Green":"#343B29"}
+		{"(RAL6008)Brown Green":"#39352A"}
+		{"(RAL6009)Fir Green":"#31372B"}
+		{"(RAL6010)Grass Green":"#35682D"}
+		{"(RAL6011)Reseda Green":"#587246"}
+		{"(RAL6012)Black Green":"#343E40"}
+		{"(RAL6013)Reed Green":"#6C7156"}
+		{"(RAL6014)Yellow Olive":"#47402E"}
+		{"(RAL6015)Black Olive":"#3B3C36"}
+		{"(RAL6016)Turquoise Green":"#1E5945"}
+		{"(RAL6017)May Green":"#4C9141"}
+		{"(RAL6018)Yellow Green":"#57A639"}
+		{"(RAL6019)Pastel Green":"#BDECB6"}
+		{"(RAL6020)Chrome Green":"#2E3A23"}
+		{"(RAL6021)Pale Green":"#89AC76"}
+		{"(RAL6022)Olive Grab":"#25221B"}
+		{"(RAL6024)Traffic Green":"#308446"}
+		{"(RAL6025)Fern Green":"#3D642D"}
+		{"(RAL6026)Opal Green":"#015D52"}
+		{"(RAL6027)Light Green":"#84C3BE"}
+		{"(RAL6028)Pine Green":"#2C5545"}
+		{"(RAL6029)Mint Green":"#20603D"}
+		{"(RAL6032)Signal Green":"#317F43"}
+		{"(RAL6033)Mint Turquoise":"#497E76"}
+		{"(RAL6034)Pastel Turquoise":"#7FB5B5"}
+		{"(RAL6035)Pearl Green(Metalic Color)":"#1C542D"}
+		{"(RAL6036)Pearl Opal Green(Metalic Color)":"#193737"}
+		{"(RAL6037)Pure Green":"#008F39"}
+		{"(RAL6038)Luminous Green":"#00BB2D"}
+		{"(RAL7000)Squirrel Grey":"#78858B"}
+		{"(RAL7001)Silver Grey":"#8A9597"}
+		{"(RAL7002)Olive Grey":"#7E7B52"}
+		{"(RAL7003)Moss Grey":"#6C7059"}
+		{"(RAL7004)Signal Grey":"#969992"}
+		{"(RAL7005)Mouse Grey":"#646B63"}
+		{"(RAL7006)Beige Grey":"#6D6552"}
+		{"(RAL7008)Khaki Grey":"#6A5F31"}
+		{"(RAL7009)Green Grey":"#4D5645"}
+		{"(RAL7010)Tarpaulin Grey":"#4C514A"}
+		{"(RAL7011)Iron Grey":"#434B4D"}
+		{"(RAL7012)Basalt Grey":"#4E5754"}
+		{"(RAL7013)Brown Grey":"#464531"}
+		{"(RAL7015)Slate Grey":"#434750"}
+		{"(RAL7016)Anthracite Grey":"#293133"}
+		{"(RAL7021)Black Grey":"#23282B"}
+		{"(RAL7022)Umbra Grey":"#332F2C"}
+		{"(RAL7023)Concrete Grey":"#686C5E"}
+		{"(RAL7024)Graphite Grey":"#474A51"}
+		{"(RAL7026)Granite Grey":"#2F353B"}
+		{"(RAL7030)Stone Grey":"#8B8C7A"}
+		{"(RAL7031)Blue Grey":"#474B4E"}
+		{"(RAL7032)Pebble Grey":"#B8B799"}
+		{"(RAL7033)Cement Grey":"#7D8471"}
+		{"(RAL7034)Yellow Grey":"#8F8B66"}
+		{"(RAL7035)Light Grey":"#D7D7D7"}
+		{"(RAL7036)Platinum Grey":"#7F7679"}
+		{"(RAL7037)Dusty Grey":"#7D7F7D"}
+		{"(RAL7038)Agate Grey":"#B5B8B1"}
+		{"(RAL7039)Quartz Grey":"#6C6960"}
+		{"(RAL7040)Window Grey":"#9DA1AA"}
+		{"(RAL7042)Traffic Grey A":"#8D948D"}
+		{"(RAL7043)Traffic Grey B":"#4E5452"}
+		{"(RAL7044)Silk Grey":"#CAC4B0"}
+		{"(RAL7045)Telegrey 1":"#909090"}
+		{"(RAL7046)Telegrey 2":"#82898F"}
+		{"(RAL7047)Telegrey 4":"#D0D0D0"}
+		{"(RAL7048)Pearl Mouse Grey(Metalic Color)":"#898176"}
+		{"(RAL8000)Green Brown":"#826C34"}
+		{"(RAL8001)Ochre Brown":"#955F20"}
+		{"(RAL8002)Signal Brown":"#6C3B2A"}
+		{"(RAL8003)Clay Brown":"#734222"}
+		{"(RAL8004)Copper Brown":"#8E402A"}
+		{"(RAL8007)Fawn Brown":"#59351F"}
+		{"(RAL8008)Olive Brown":"#6F4F28"}
+		{"(RAL8011)Nut Brown":"#5B3A29"}
+		{"(RAL8012)Red Brown":"#592321"}
+		{"(RAL8014)Sepia Brown":"#382C1E"}
+		{"(RAL8015)Chestnut Brown":"#633A34"}
+		{"(RAL8016)Mahogany Brown":"#4C2F27"}
+		{"(RAL8017)Chocolate Brown":"#45322E"}
+		{"(RAL8019)Grey Brown":"#403A3A"}
+		{"(RAL8022)Black Brown":"#212121"}
+		{"(RAL8023)Orange Brown":"#A65E2E"}
+		{"(RAL8024)Beige Brown":"#79553D"}
+		{"(RAL8025)Pale Brown":"#755C48"}
+		{"(RAL8028)Terra Brown":"#4E3B31"}
+		{"(RAL8029)Pearl Copper(Metalic Color)":"#763C28"}
+		{"(RAL9001)Cream":"#FDF4E3"}
+		{"(RAL9002)Grey White":"#E7EBDA"}
+		{"(RAL9003)Signal White":"#F4F4F4"}
+		{"(RAL9004)Signal Black":"#282828"}
+		{"(RAL9005)Jet Black":"#0A0A0A"}
+		{"(RAL9006)White Aluminium (Metalic Color)":"#A5A5A5"}
+		{"(RAL9007)Grey Aluminium(Metalic Color)":"#8F8F8F"}
+		{"(RAL9010)Pure White":"#FFFFFF"}
+		{"(RAL9011)Graphite Black":"#1C1C1C"}
+		{"(RAL9016)Traffic White":"#F6F6F6"}
+		{"(RAL9017)Traffic Black":"#1E1E1E"}
+		{"(RAL9018)Papyrus White":"#D7D7D7"}
+		{"(RAL9022)Pearl Light Grey(Metalic Color)":"#9C9C9C"}
+		{"(RAL9023)Pearl Dark Grey(Metalic Color)":"#828282"}
+	]
+}
