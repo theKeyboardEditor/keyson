@@ -37,6 +37,8 @@
 		[ "Unit": {
 			"Unit ID": 1
 			"Designator": "Master half"
+			"Position": [0,0],
+			"Angle": [0.0],
 			"Size": "22"
 			"Keys": { [
 				{
