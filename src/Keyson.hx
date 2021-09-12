@@ -90,7 +90,7 @@ class Palette {
 		this.url = "unknown";
 		this.colorMatchingProfile = "none";
 		this.size = 0;
-		this.squashes = [new Color("",0x0000FF )];
+		this.squashes = [new Color("",0x000000 )];
 	}
 	public function colorMatch(color:String) {
 		// Return the closest match from self
@@ -111,7 +111,7 @@ class Color {
 	public var color:String;
 	public var value:Int;
 
-	public function new(color:String, value:Int) {
+	public function new(color:String,value:Int) {
 		this.color = color;
 		this.value = value;
 	}

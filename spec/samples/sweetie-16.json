@@ -1,0 +1,24 @@
+"Palette" {
+	"name": "sweetie-16",
+	"url": "https://lospec.com/palette-list/sweetie-16",
+	"colorMatchingProfile": "generic",
+	"size": "16",
+	"squashes": [
+		{"black": "0x1A1C2C"}
+		{"violet":"0x5D275D"}
+		{"red":   "0xB13E53"}
+		{"orange":"0xEF7D57"}
+		{"yellow":"0xFFCD75"}
+		{"lime":  "0xA7F070"}
+		{"green": "0x38B764"}
+		{"teal":  "0x257179"}
+		{"dblue": "0x29366F"}
+		{"blue":  "0x3B5DC9"}
+		{"sky":   "0x41A6F6"}
+		{"cyan":  "0x73EFF7"}
+		{"white": "0xF4F4F4"}
+		{"lgray": "0x94B0C2"}
+		{"gray":  "0x566C86"}
+		{"dgray": "0x333C57"}
+	]
+}
