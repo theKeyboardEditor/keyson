@@ -12,9 +12,11 @@ typedef KeysonOptions = {
 
 class Keyson {
 	// public static vars (once per session run)
+	public static var version="0.0.1-alpha";
+
 	// static vars (library local)
+
 	// public vars (the load and save content and flags)
-	public var keyboard:Keyboard; // The whole object the file can hold
 	public var name:String;
 	public var author:String;
 	public var license:String;
@@ -33,6 +35,16 @@ class Keyson {
 	public function cat(opts:KeysonOptions) { // cat a string out
 	}
 
+	public function remap(Palette) {
+		//TODO
+		// we return our Keyboard object but remapped to the supplied Palette object:
+		// seeking a closest match:
+		// in each unit
+		// for each key
+		// for both label for every sublabel
+
+	}
+
 	// functions (library local functions)
 }
 
@@ -42,6 +54,19 @@ class Palette {
 	var colorMatchingProfile:String;
 	var size:Int;
 	var squashes:Array<Color>;
+	var matchingIndex:Array<Int>;
+
+	public function colorMatch(Color) {
+		// Return the closest match from self
+		// TODO
+		// first we make an index by:
+		// sum of absolute differences of the per byte values
+		// we sort off that index (really just seek the smallest member)
+		// section(s) of same index value are sorted by whole color integer value:
+		// lighter colors first
+		// we return the first member of the index list
+	}
+
 }
 
 class Color {
@@ -98,13 +123,27 @@ class Key {
 	var sublabels:Sublabel;
 }
 
-class KeyLabel { // the global or define their own
+class KeyLabel {
+	// the Keyboard options or here define their own
+	var keysColor:String;
+	var labelFont:String;
+	var labelFontSize:Int;
+	var labelColor:String;
+	var labelPosition:Array<Float>;
+	var profile:String;
+	var keySculpt:String;
+
 	var glyph:String;
 }
 
-class Sublabel { // the global or define their own
+class Sublabel {
+	// the Keyboard options or here define their own
+	var sublabelFont:String;
+	var sublabelFontSize:Int;
+	var sublabelColor:String;
+
 	var positions:Array<String>; // the 9 positions on a key
-	// TODO do we want an lumped or fine grained acces to sublabels?
+	// TODO do we want a lumped or a fine grained acces to sublabels?
 }
 
 class LEDFeature {
@@ -115,7 +154,7 @@ class EncoderFeature {
 	var diameter:Float; // in unit size
 	var barrelSize:Float; // height/length in units size
 	var profile:String; // "Round" "Curled" "Ribbed"
-	var type:String; // "Upright" "Barrel X" "Barrel Y"
+	var type:String; // axis:"Upright" "Barrel X" "Barrel Y"
 }
 
 class TrackpointFeature {
