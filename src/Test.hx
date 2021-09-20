@@ -62,5 +62,50 @@ class Test {
 		trace ("__assortment2 size:'"+assortment2.size+"'");
 		trace ("__assortment2 element 5:'"+assortment2.squashes[5].color+"'/0x"+StringTools.hex(assortment2.squashes[5].value)+"'");
 
+		//We define a simple (and single) keyboard unit here
+		var single = new Keyson.Unit();
+			single.unitID = 0; //        unique unit ID
+			single.designator = "Singular"; // "Master", "Slave", "Numpad" ...
+			single.position = [0,0]; // placement of the unit
+			single.angle = 0; //     rotation around the anchor point
+			single.size = 4; //          number of keys/elements
+			single.keys = [];
+
+		single.keys.push(new Keyson.Key(0,"1U",[0,0],new Keyson.KeyLabel("1")));
+		single.keys.push(new Keyson.Key(1,"1U",[1,0],new Keyson.KeyLabel("2")));
+		single.keys.push(new Keyson.Key(2,"1U",[0,1],new Keyson.KeyLabel("3")));
+		single.keys.push(new Keyson.Key(3,"1U",[1,1],new Keyson.KeyLabel("4")));
+
+		//TODO make actual keyboard device here
+		var pad = new Keyson.Keyboard();
+		pad.keyStep = [19.05,19.05];
+		pad.stabilizerType = "Cherry";
+		pad.switchType = "Cherry MX";
+		pad.capSize = [18.75,18.75];
+		pad.unitMeasure = "mm";
+		pad.caseColor = "gray";
+		pad.keysColor = "gray";
+		pad.labelFont = "Sans";
+		pad.sublabelFont = "Sans";
+		pad.labelFontSize = 11;
+		pad.sublabelFontSize = 7;
+		pad.labelColor = "black";
+		pad.labelPosition = [0.0,0.0];
+		pad.sublabelColor = "black";
+		pad.profile = "XDA";
+		pad.keySculpt = "R3";
+		pad.amountOfUnits = 1;
+		pad.units = [];
+
+		pad.units.push(single);
+		trace ("__pad keys amount:'"+pad.units[0].keys.length+"'");
+
+		//TODO assign it one pallete
+		//TODO switch to the other palette
 	}
 }
+	function readfile(dest:String) {
+		//TODO open said file and return it as an array of lines
+		return; // content:Array<String>;
+	}
+

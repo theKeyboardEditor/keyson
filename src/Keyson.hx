@@ -202,7 +202,7 @@ class Unit {
 		this.position = [0,0]; // placement of the unit
 		this.angle = 0; //     rotation around the anchor point
 		this.size = 0; //          number of keys/elements
-		this.keys = [new Key()];
+		this.keys = [new Key(0,"1U",[0,0],new Keyson.KeyLabel("1") )];
 
 	}
 }
@@ -222,20 +222,20 @@ class Key {
 	public var label:KeyLabel;
 	public var sublabels:Sublabel;
 
-	public function new() {
-		keyID = 0;  // unique key ID
-		position = [0,0]; // place on the unit
-		stabilizer = "None"; // "None","2U","2.25U","2.75U","6.25U","7.25U",(Custom Bar)"125.5"
-		angle = 0.0;
-		shape = "1U"; //"1U","2U","2U vertical","1.25U","1.5U","1.75U","2.25U","2.75U","ISO","BAE","6.25U","7.25U","3U","0.75U"
-		labelFont = "";
-		relativeRotationCenter = [0.0,0.0];
-		features = [];
-		steppedTop = 0.0;
-		homingFeature = "";
-		keysColor = "";
-		label = new KeyLabel();
-		sublabels = new Sublabel();
+	public function new(keyID:Int, shape:String, position:Array<Int>, label:KeyLabel) {
+		this.keyID = keyID;  // unique key ID
+		this.position = position; // place on the unit
+		this.stabilizer = "None"; // "None","2U","2.25U","2.75U","6.25U","7.25U",(Custom Bar)"125.5"
+		this.angle = 0.0;
+		this.shape = shape; //"1U","2U","2U vertical","1.25U","1.5U","1.75U","2.25U","2.75U","ISO","BAE","6.25U","7.25U","3U","0.75U"
+		this.labelFont = "";
+		this.relativeRotationCenter = [0.0,0.0];
+		this.features = [];
+		this.steppedTop = 0.0;
+		this.homingFeature = "";
+		this.keysColor = "";
+		this.label = label;
+		this.sublabels = new Sublabel();
 
 	}
 }
@@ -251,15 +251,15 @@ class KeyLabel {
 	public var keySculpt:String;
 	public var glyph:String;
 
-	public function new() {
-		keysColor = "";
-		labelFont = "";
-		labelFontSize = 0;
-		labelColor = "";
-		labelPosition = [0.0,0.0];
-		profile = "";
-		keySculpt = "";
-		glyph = "";
+	public function new(glyph:String) {
+		this.keysColor = "";
+		this.labelFont = "";
+		this.labelFontSize = 0;
+		this.labelColor = "";
+		this.labelPosition = [0.0,0.0];
+		this.profile = "";
+		this.keySculpt = "";
+		this.glyph = glyph;
 	}
 }
 
