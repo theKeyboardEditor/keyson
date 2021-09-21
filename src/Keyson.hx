@@ -9,37 +9,33 @@ typedef KeysonOptions = {
 	// optional (generic?) palette name for new layout
 	var paletteName:String;
 }
-
+/**
+ * Here we are defining the file object it self:
+ *
+ * Everything found in the file is defined and structured here
+ *
+ **/
 class Keyson {
 	// public static vars (once per session run)
+	// the version string for later compatibility tracking:
 	public static var version = "0.0.1-alpha";
 
 	// static vars (library local)
 
-	// public vars (the load and save content and flags)
+	// public vars (for the load and save content and flags)
 	public var name:String;
 	public var author:String;
 	public var license:String;
 	public var comment:String;
 	public var colorTable:Palette;
 	public var board:Keyboard;
-	public var remapped:Keyboard;
+	public var remapped:Keyboard; // in process place holder
 
 	// vars (local to the lib and file parsing)
 	var unit:Array<Unit>;
 	var key:Array<Key>;
 
-	// public functions (we call from outside)
-	public function set(name:String,author:String,license:String,comment:String,colorTable:Palette,board:Keyboard) { // generic empty layout
-		this.name = name;
-		this.author = author;
-		this.license = license;
-		this.comment = comment;
-		this.colorTable = colorTable;
-		this.board = board;
-	}
-
-	public function new() { // initialize our object
+	public function new() { // initialize our object with sane defaults
 		name = "unknown";
 		author = "unknown";
 		license = "CC";
@@ -50,6 +46,7 @@ class Keyson {
 
 	public function remap(calling:Palette) {
 		//TODO
+		// add trace for debugging
 		// we return our keyboard object but remapped to the supplied Palette object:
 		remapped = this.board; //object to be changed
 		// we iterate thru:
@@ -158,7 +155,8 @@ class Keyboard {
 		this.units = [new Unit()];
 	}
 
-	public function set (	keyStep:Array<Float>, stabilizerType:String,
+// commenting this out as we only need set if we need sanity checks (do we?)
+/*	public function set (	keyStep:Array<Float>, stabilizerType:String,
 							switchType:String, capSize:Array<Float>,unitMeasure:String,
 							caseColor:String, keysColor:String,
 							labelFont:String, sublabelFont:String,
@@ -186,7 +184,7 @@ class Keyboard {
 		this.keySculpt = keySculpt;
 		this.amountOfUnits = amountOfUnits;
 		this.units = units;
-	}
+	} */
 }
 
 class Unit {
@@ -254,7 +252,7 @@ class KeyLabel {
 	public function new(glyph:String) {
 		this.keysColor = "";
 		this.labelFont = "";
-		this.labelFontSize = 0;
+		this.labelFontSize = 12; // sane default
 		this.labelColor = "";
 		this.labelPosition = [0.0,0.0];
 		this.profile = "";
@@ -274,7 +272,7 @@ class Sublabel {
 
 	public function new() {
 		sublabelFont = "";
-		sublabelFontSize = 0;
+		sublabelFontSize = 7; // sane default
 		sublabelColor = "";
 		positions = ["","","","","","","","",""];
 	}

@@ -3,10 +3,12 @@ package;
 class Test {
 	public static function main() {
 		trace (">>>We Are Testing...");
+		//The keyboard file to be:
 		var keeb = new Keyson();
 
 		trace ("__keebName:'"+keeb.name+"'");
 
+		// The first palette:
 		var assortment = new Keyson.Palette();
 		assortment.name= "Kids Crayons 16";
 		assortment.url = "https://some.site.org";
@@ -35,6 +37,7 @@ class Test {
 		trace ("__assortment element 5:'"+assortment.squashes[5].color+"'/0x"+StringTools.hex(assortment.squashes[5].value)+"'");
 
 
+		//The 2nd palette:
 		var assortment2 = new Keyson.Palette();
 		assortment2.name= "Kids Crayons 16";
 		assortment2.url = "https://some.site.org";
