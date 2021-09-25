@@ -3,10 +3,13 @@ package;
 class Test {
 	public static function main() {
 		trace (">>>We Are Testing...");
-		//The keyboard file to be:
+		//The keyboard variable object to be:
 		var keeb = new Keyson();
+		//The keyboard string to be written to a file on some URL:
+		//It is an array of lines of the file
+		var keebfile:Array<String> =[];
 
-		trace ("__keebName:'"+keeb.name+"'");
+		trace ("__keebName:\""+keeb.name+"\"");
 
 		// The first palette:
 		var assortment = new Keyson.Palette();
@@ -33,8 +36,8 @@ class Test {
 		assortment.squashes.push(new Keyson.Color("navy"   , 0x000080));
 		assortment.size = assortment.squashes.length;
 
-		trace ("__assortment size:'"+assortment.size+"'");
-		trace ("__assortment element 5:'"+assortment.squashes[5].color+"'/0x"+StringTools.hex(assortment.squashes[5].value)+"'");
+		trace ("__assortment size:\""+assortment.size+"\"");
+		trace ("__assortment element 5:\""+assortment.squashes[5].color+"\"/0x"+StringTools.hex(assortment.squashes[5].value)+"\"");
 
 
 		//The 2nd palette:
@@ -62,8 +65,8 @@ class Test {
 		assortment2.squashes.push(new Keyson.Color("dgray" , 0x333C57));
 		assortment2.size = assortment2.squashes.length;
 
-		trace ("__assortment2 size:'"+assortment2.size+"'");
-		trace ("__assortment2 element 5:'"+assortment2.squashes[5].color+"'/0x"+StringTools.hex(assortment2.squashes[5].value)+"'");
+		trace ("__assortment2 size:\""+assortment2.size+"\"");
+		trace ("__assortment2 element 5:\""+assortment2.squashes[5].color+"\"/0x"+StringTools.hex(assortment2.squashes[5].value)+"\"");
 
 		//We define a simple (and single) keyboard unit here
 		var single = new Keyson.Unit();
@@ -101,10 +104,107 @@ class Test {
 		pad.units = [];
 
 		pad.units.push(single);
-		trace ("__pad keys amount:'"+pad.units[0].keys.length+"'");
+		trace ("__pad keys amount:\""+pad.units[0].keys.length+"\"");
 
 		//TODO assign it one pallete
 		//TODO switch to the other palette
+
+		//Assemble the whole keyboard:
+		keeb.name = "Numpad";
+		keeb.author="The Core Team";
+		keeb.license="CC";
+		keeb.comment="This is a test";
+		keeb.colorTable=assortment;
+		keeb.board =pad;
+
+
+		//TODO make the string comperhension functions to
+		//Write the keeb to the string
+		keebfile = [];
+		keebfile.push("\"Name\": \""+keeb.name+"\"");
+		keebfile.push("\"Author\": \""+keeb.author+"\"");
+		keebfile.push("\"License\": \""+keeb.license+"\"");
+		keebfile.push("\"Comment\": \""+keeb.comment+"\"");
+		keebfile.push("\"Palette\": {");
+			//descend into colorTable:
+			keebfile.push("\"Name\": \""+keeb.colorTable.name+"\"");
+			keebfile.push("\"URL\" :\""+keeb.colorTable.url+"\"");
+			keebfile.push("\"Color Matching Profile\" :\""+keeb.colorTable.colorMatchingProfile+"\"");
+			keebfile.push("\"Size:\" :"+Std.string(keeb.colorTable.squashes.length)+"");
+			keebfile.push("\"Colors\": [");
+			for( s in keeb.colorTable.squashes) {
+				keebfile.push("{"+StringTools.rpad(s.color+"\",", " ", 12)+" 0x"+StringTools.hex(s.value, 6 )+"}");
+				trace (">>>squash: \""+StringTools.rpad(s.color+"\",", " ", 12)+" 0x"+StringTools.hex(s.value, 6 ));
+			};
+			keebfile.push("]");
+		keebfile.push("}");
+		keebfile.push("\"Keyboard\": {");
+		//Descend into keyboard details:
+			keebfile.push("\"1U Key Step\": "+Std.string(keeb.board.keyStep)+"");
+			keebfile.push("\"Stabilizer type\": "+keeb.board.stabilizerType+"\"");
+			keebfile.push("\"Switch type\": "+keeb.board.switchType+"\"");
+			keebfile.push("\"Cap Size\":["+Std.string(keeb.board.capSize)+"]");
+			keebfile.push("\"Units\": \""+keeb.board.unitMeasure+"\"");
+			keebfile.push("\"Case Color\": \""+keeb.board.caseColor+"\"");
+			keebfile.push("\"Keys Color\": \""+keeb.board.keysColor+"\"");
+			keebfile.push("\"Font\": \""+keeb.board.labelFont+"\"");
+			keebfile.push("\"Sublabel Font\": \""+keeb.board.sublabelFont+"\"");
+			keebfile.push("\"Label Size\": "+Std.string(keeb.board.labelFontSize)+"");
+			keebfile.push("\"Sublabel Size\": "+Std.string(keeb.board.sublabelFontSize)+"");
+			keebfile.push("\"Label Color\": \""+keeb.board.labelColor+"\"");
+			keebfile.push("\"Label Position\": ["+Std.string(keeb.board.labelPosition)+"]");
+			keebfile.push("\"Sublabel Color\": \""+keeb.board.sublabelColor+"\"");
+			keebfile.push("\"Profile\": \""+keeb.board.profile+"\"");
+			keebfile.push("\"Key Sculpt\": "+keeb.board.keySculpt+"\"");
+			keebfile.push("\"Amount of Units\": "+Std.string(keeb.board.units.length)+"\"");
+			keebfile.push("\"Unit\": {");
+			//Descend into Unit details:
+			for ( u in keeb.board.units) {
+				keebfile.push("\"Unit ID\": "+Std.string(u.unitID));
+				keebfile.push("\"Designator\": \""+u.designator+"\"");
+				keebfile.push("\"Position\": "+Std.string(u.position));
+				keebfile.push("\"Angle\": "+Std.string(u.angle));
+				keebfile.push("\"Size\": "+Std.string(u.keys.length));
+				keebfile.push("\"Keys\": {");
+				//Descend into Key details
+				for ( k in u.keys) {
+					keebfile.push("\"Key ID\": "+Std.string(k.keyID));
+					keebfile.push("\"Position\": \""+Std.string(k.position));
+					keebfile.push("\"Stabilizer\": \""+k.stabilizer+"\"");
+					keebfile.push("\"Angle\": \""+Std.string(k.angle));
+					keebfile.push("\"Shape\": \""+k.shape+"\"");
+					keebfile.push("\"Label Font\": \""+k.labelFont+"\"");
+					keebfile.push("\"Relative Rotation Center\": \""+Std.string(k.relativeRotationCenter));
+					keebfile.push("\"Features\": \""+k.features+"\"");
+					keebfile.push("\"Stepped Top\": \""+Std.string(k.steppedTop));
+					keebfile.push("\"Homing Features\": \""+k.homingFeature+"\"");
+					keebfile.push("\"Key Color\": \""+k.keysColor+"\"");
+					keebfile.push("\"Label\": {");
+					// Label has substructure too:
+					keebfile.push("\"Key Color\": \""+k.label.keysColor+"\"");
+					keebfile.push("\"Label Font\": \""+k.label.labelFont+"\"");
+					keebfile.push("\"Font Size\": "+Std.string(k.label.labelFontSize));
+					keebfile.push("\"Color\": \""+k.label.labelColor+"\"");
+					keebfile.push("\"Position\": "+Std.string(k.label.labelPosition));
+					keebfile.push("\"Profile\": \""+k.label.profile+"\"");
+					keebfile.push("\"Key Sculpt\": \""+k.label.keySculpt+"\"");
+					keebfile.push("\"Glyph\": \""+k.label.glyph+"\"");
+					keebfile.push("}");
+					keebfile.push("\"Sublabels\": {");
+					// TODO reconsider sublabel to be more generic or somewhat
+					keebfile.push("\"Font\": \""+k.sublabels.sublabelFont+"\"");
+					keebfile.push("\"Font Size\": "+Std.string(k.sublabels.sublabelFontSize));
+					keebfile.push("\"Color\": \""+k.sublabels.sublabelColor+"\"");
+
+					keebfile.push("\"Positions\": \""+k.sublabels.positions+"\""); // the 9 positions on a key
+					keebfile.push("}");
+				};
+			};
+			keebfile.push("}");
+			keebfile.push("}");
+		keebfile.push("}");
+		//Read in the keeb
+		trace (">>>file:"+keebfile);
 	}
 }
 	function readfile(dest:String) {
