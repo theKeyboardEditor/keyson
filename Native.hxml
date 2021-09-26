@@ -1,0 +1,4 @@
+--class-path src
+--dce full
+--cpp build
+--main Test

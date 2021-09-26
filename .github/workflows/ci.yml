@@ -21,5 +21,8 @@ jobs:
         with:
           haxe-version: 4.2.3
 
-      - name: Test with the interp target
-        run: haxe Test.hxml
+      - name: Test with the interp interpreter
+        run: haxe Interp.hxml
+      
+      - name: Test with the hxcpp target
+        run: haxe Native.hxml
