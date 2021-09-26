@@ -149,7 +149,7 @@ class Keyboard {
 		this.labelColor = "";
 		this.labelPosition = [0.0,0.0];
 		this.sublabelColor = "";
-		this.profile = "XDA";
+		this.profile = "Cherry";
 		this.keySculpt = "R3";
 		this.amountOfUnits = 1;
 		this.units = [new Unit()];
