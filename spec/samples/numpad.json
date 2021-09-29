@@ -44,11 +44,11 @@
 		"Profile": "XDA",
 		"Key Sculpt:" "R3",
 		"Amount of Units": 1,
-		[ "Unit": {
+		 "Unit": [ {
 			"Unit ID": 1,
 			"Designator": "Numpad",
 			"Size": "17",
-			"Keys": { [
+			"Keys": [
 				{
 					"ID": 0,
 					"Position": [0,0],
@@ -247,8 +247,7 @@
 						"Del", "", ""
 					}
 				}
-				]
-			}
+			]
 		}
 		]
 	}
