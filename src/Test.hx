@@ -142,19 +142,19 @@ class Test {
 		keebfile.push("}");
 		keebfile.push("\"Keyboard\": {");
 		//Descend into keyboard details:
-			keebfile.push("\"1U Key Step\": "+Std.string(keeb.board.keyStep)+"");
+			keebfile.push("\"1U Key Step\": "+Std.string(keeb.board.keyStep));
 			keebfile.push("\"Stabilizer type\": "+keeb.board.stabilizerType+"\"");
 			keebfile.push("\"Switch type\": "+keeb.board.switchType+"\"");
-			keebfile.push("\"Cap Size\":["+Std.string(keeb.board.capSize)+"]");
+			keebfile.push("\"Cap Size\":"+Std.string(keeb.board.capSize));
 			keebfile.push("\"Units\": \""+keeb.board.unitMeasure+"\"");
 			keebfile.push("\"Case Color\": \""+keeb.board.caseColor+"\"");
 			keebfile.push("\"Keys Color\": \""+keeb.board.keysColor+"\"");
 			keebfile.push("\"Font\": \""+keeb.board.labelFont+"\"");
 			keebfile.push("\"Sublabel Font\": \""+keeb.board.sublabelFont+"\"");
-			keebfile.push("\"Label Size\": "+Std.string(keeb.board.labelFontSize)+"");
-			keebfile.push("\"Sublabel Size\": "+Std.string(keeb.board.sublabelFontSize)+"");
+			keebfile.push("\"Label Size\": "+Std.string(keeb.board.labelFontSize));
+			keebfile.push("\"Sublabel Size\": "+Std.string(keeb.board.sublabelFontSize));
 			keebfile.push("\"Label Color\": \""+keeb.board.labelColor+"\"");
-			keebfile.push("\"Label Position\": ["+Std.string(keeb.board.labelPosition)+"]");
+			keebfile.push("\"Label Position\": "+Std.string(keeb.board.labelPosition));
 			keebfile.push("\"Sublabel Color\": \""+keeb.board.sublabelColor+"\"");
 			keebfile.push("\"Profile\": \""+keeb.board.profile+"\"");
 			keebfile.push("\"Key Sculpt\": "+keeb.board.keySculpt+"\"");
@@ -321,7 +321,7 @@ class Test {
 		if ( keebfile[keebfileLinecntr].split(":")[0] == "\"1U Key Step\"" ) {
 			// TODO: make this simpler to digest
 			keeb.board.keyStep =[ for (a in keebfile[keebfileLinecntr].split(":")[1].substring(keebfile[keebfileLinecntr].split(":")[1].indexOf("[")+1,keebfile[keebfileLinecntr].split(":")[1].indexOf("]")).split(",")) Std.parseFloat(a)];
-			trace ("Array:",keeb.board.keyStep );
+			trace ( "Array:"+Std.string(keeb.board.keyStep) );
 			keebfileLinecntr = keebfileLinecntr + 1; // we only ever advance if found!
 		} else {
 			trace ("Keyson Keyboard header missing on line "+Std.string(keebfileLinecntr)+"!");
@@ -341,6 +341,7 @@ class Test {
 		if ( keebfile[keebfileLinecntr].split(":")[0] == "\"Cap Size\"" ) {
 			// TODO: make this simpler to digest
 			keeb.board.capSize = [ for (a in keebfile[keebfileLinecntr].split(":")[1].substring(keebfile[keebfileLinecntr].split(":")[1].indexOf("[")+1,keebfile[keebfileLinecntr].split(":")[1].indexOf("]")).split(",")) Std.parseFloat(a)];
+			trace ( "Array:"+Std.string(keeb.board.capSize) );
 			keebfileLinecntr = keebfileLinecntr + 1;
 		} else {
 			trace ("Keyson Cap Size missing on line "+Std.string(keebfileLinecntr)+"!");
@@ -396,6 +397,7 @@ class Test {
 		if ( keebfile[keebfileLinecntr].split(":")[0] == "\"Label Position\"" ) {
 			// TODO: make this simpler to digest
 			keeb.board.labelPosition = [ for (a in keebfile[keebfileLinecntr].split(":")[1].substring(keebfile[keebfileLinecntr].split(":")[1].indexOf("[")+1,keebfile[keebfileLinecntr].split(":")[1].indexOf("]")).split(",")) Std.parseFloat(a)];
+			trace ( "Array:"+Std.string(keeb.board.labelPosition) );
 			keebfileLinecntr = keebfileLinecntr + 1;
 		} else {
 			trace ("Keyson Label Position missing on line "+Std.string(keebfileLinecntr)+"!");
@@ -424,9 +426,42 @@ class Test {
 		} else {
 			trace ("Keyson Amount of Units missing on line "+Std.string(keebfileLinecntr)+"!");
 		}
-		if ( keebfile[keebfileLinecntr].split(":")[0] == "\"Unit\": [ {\"" ) {
+		if ( keebfile[keebfileLinecntr].split(":")[0] == "\"Unit\"" ) {
+			// advance the counter to evaluate next line:
 			keebfileLinecntr = keebfileLinecntr + 1;
-//			keeb.board.units =
+			trace ("Keyson Unit found on line "+Std.string(keebfileLinecntr)+"!");
+			//we're to loop until we find the matching "]" line:
+			while (keebfile[keebfileLinecntr] != "]") { // seeking the single closed square brace
+				keebfileLinecntr = keebfileLinecntr + 1;
+				//TODO read in the units line by line
+				if ( keebfile[keebfileLinecntr].split(":")[0] == "\"Unit ID\"" ) {
+				}
+				if ( keebfile[keebfileLinecntr].split(":")[0] == "\"Designator\"" ) {
+				}
+				if ( keebfile[keebfileLinecntr].split(":")[0] == "\"Position\"" ) {
+				}
+				if ( keebfile[keebfileLinecntr].split(":")[0] == "\"Angle\"" ) {
+				}
+				if ( keebfile[keebfileLinecntr].split(":")[0] == "\"Size\"" ) {
+				}
+				if ( keebfile[keebfileLinecntr].split(":")[0] == "\"Keys\"" ) {
+					// advance the counter to evaluate next line:
+					keebfileLinecntr = keebfileLinecntr + 1;
+					trace ("Keyson Key found on line "+Std.string(keebfileLinecntr)+"!");
+					//we're to loop until we find the matching "]" line:
+					while (keebfile[keebfileLinecntr] != "]") { // seeking the single closed square brace
+						keebfileLinecntr = keebfileLinecntr + 1;
+						//TODO read in the keys line by line
+					}
+					if ( keebfile[keebfileLinecntr] == "]" )
+						trace ("Key footer found on line "+Std.string(keebfileLinecntr)+"!");
+				}
+			}
+			keebfileLinecntr = keebfileLinecntr + 1;
+			// IDK what element ends here :^(
+			keebfileLinecntr = keebfileLinecntr + 1;
+			if ( keebfile[keebfileLinecntr] == "]" )
+				trace ("Unit footer found on line "+Std.string(keebfileLinecntr)+"!");
 		} else {
 			trace ("Keyson Unit missing on line "+Std.string(keebfileLinecntr)+"!");
 		}
