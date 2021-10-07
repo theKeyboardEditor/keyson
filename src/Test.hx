@@ -123,6 +123,7 @@ class Test {
 		 **/
 		keebfile = [];
 		keebfile.push("{");
+
 		keebfile.push("\"Name\": \""+keeb.name+"\"");
 		keebfile.push("\"Author\": \""+keeb.author+"\"");
 		keebfile.push("\"License\": \""+keeb.license+"\"");
@@ -130,6 +131,7 @@ class Test {
 		keebfile.push("\"Palette\": {");
 			//descend into colorTable:
 			keebfile.push("\"Name\": \""+keeb.colorTable.name+"\"");
+
 			keebfile.push("\"URL\": \""+keeb.colorTable.url+"\"");
 			keebfile.push("\"Color Matching Profile\": \""+keeb.colorTable.colorMatchingProfile+"\"");
 			keebfile.push("\"Size\": "+Std.string(keeb.colorTable.squashes.length)+"");
@@ -207,6 +209,7 @@ class Test {
 			keebfile.push("}");
 		keebfile.push("]");
 		keebfile.push("}");
+
 		keebfile.push("}");
 		//Read in the keeb
 		/**
