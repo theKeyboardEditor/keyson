@@ -26,6 +26,7 @@
 		"Keys Color": "white",
 		"Label Font":"sans",
 		"Sublabel Font":"sans",
+		"labelSizeUnits": ["px","pc","mm","thou","inch","meter"]
 		"Label Font Size": "9px",
 		"Sublabel Font Size": "7px",
 		"Label Color": "black",
@@ -57,11 +58,11 @@
 					"Trackpoint Feature": {"Diameter": 32.4, "Profile": ["Round","Square"]},
 					"Body Color":"255",
 					"Label": {
-						"Esc",
 						"Label Font":"sans",
 						"Label Font Size": "16px",
 						"Label Color": "2",
 						"Label Position": [12,8],
+						"Glyph": "Esc",
 					}
 					"Sublabels": {
 						"Sublabel Font Size":"sans", "Sublabel Font Size": "7px", "Sublabel Color": "3",
@@ -81,11 +82,11 @@
 					"Homing Feature": "Bar",
 					"Body Color":"255",
 					"Label": {
-						"F1",
 						"Label Font":"sans",
 						"Label Font Size": "16px",
 						"Label Color": "2",
 						"Label Position": [12,8],
+						"Glyph": "F1",
 					}
 					"Sublabels": {
 						"Sublabel Font":"sans", "Sublabel Font Size": "7px", "Sublabel Color": "3",
@@ -113,11 +114,11 @@
 					"Homing Feature": "Bar",
 					"Body Color":"255",
 					"Label": {
-						"F1",
 						"Label Font":"sans",
 						"Label Font Size": "16px",
 						"Label Color": "2",
 						"Label Position": [12,8],
+						"Glyph": "F1",
 					}
 					"Sublabels": {
 						"Sublabel Font":"sans", "Sublabel Font Size": "7px", "Sublabel Color": "3",

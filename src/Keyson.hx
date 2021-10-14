@@ -119,7 +119,7 @@ class Keyboard {
 	public var stabilizerType:String;
 	public var switchType:String;
 	public var capSize:Array<Float>;
-	public var unitMeasure:String;
+	public var units:String;
 	public var caseColor:String;
 	public var keysColor:String;
 	public var labelFont:String;
@@ -139,7 +139,7 @@ class Keyboard {
 		this.stabilizerType = "";
 		this.switchType = "";
 		this.capSize = [0.0,0.0];
-		this.unitMeasure = "mm";
+		this.units = "mm";
 		this.caseColor = "";
 		this.keysColor = "";
 		this.labelFont = "unknown";
@@ -157,7 +157,7 @@ class Keyboard {
 
 // commenting this out as we only need set if we need sanity checks (do we?)
 /*	public function set (	keyStep:Array<Float>, stabilizerType:String,
-							switchType:String, capSize:Array<Float>,unitMeasure:String,
+							switchType:String, capSize:Array<Float>,units:String,
 							caseColor:String, keysColor:String,
 							labelFont:String, sublabelFont:String,
 							labelFontSize:Int, sublabelFontSize:Int,
@@ -171,7 +171,7 @@ class Keyboard {
 		this.stabilizerType = stabilizerType;
 		this.switchType = switchType;
 		this.capSize = capSize;
-		this.unitMeasure = unitMeasure;
+		this.units = units;
 		this.caseColor = caseColor;
 		this.keysColor = keysColor;
 		this.labelFont = labelFont;

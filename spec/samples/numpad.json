@@ -54,7 +54,7 @@
 					"Position": [0,0],
 					"Shape": "1U",
 					"Label": {
-						"Num Lock",
+						"Glyph": "Num Lock",
 					}
 				},
 				{
@@ -62,7 +62,7 @@
 					"Position": [1,0],
 					"Shape": "1U",
 					"Label": {
-						"/",
+						"Glyph": "/",
 					}
 				},
 				{
@@ -70,7 +70,7 @@
 					"Position": [2,0],
 					"Shape": "1U",
 					"Label": {
-						"*",
+						"Glyph": "*",
 					}
 					"Sublabels": {}
 				},
@@ -79,7 +79,7 @@
 					"Position": [3,0],
 					"Shape": "1U",
 					"Label": {
-						"-",
+						"Glyph": "-",
 					}
 					"Sublabels": {}
 				},
@@ -88,7 +88,7 @@
 					"Position": [0,1],
 					"Shape": "1U",
 					"Label": {
-						"7",
+						"Glyph": "7",
 					}
 					"Sublabels": {
 						"", "", "",
@@ -101,7 +101,7 @@
 					"Position": [1,1],
 					"Shape": "1U",
 					"Label": {
-						"8",
+						"Glyph": "8",
 					}
 					"Sublabels": {
 						"", "", "",
@@ -114,7 +114,7 @@
 					"Position": [2,1],
 					"Shape": "1U",
 					"Label": {
-						"9",
+						"Glyph": "9",
 						"Size": "9px",
 						"Color": "black",
 					}
@@ -130,7 +130,7 @@
 					"Stabilizer": "2U",
 					"Shape": "2U vertical",
 					"Label": {
-						"+",
+						"Glyph": "+",
 						"Position": [1.27,17.78],
 					}
 					"Sublabels": {}
@@ -140,7 +140,7 @@
 					"Position": [0,2],
 					"Shape": "1U",
 					"Label": {
-						"4",
+						"Glyph": "4",
 					}
 					"Sublabels": {
 						"", "", "",
@@ -154,7 +154,7 @@
 					"Shape": "1U",
 					"Features": "Homing",
 					"Label": {
-						"5",
+						"Glyph": "5",
 					}
 					"Sublabels": {}
 				},
@@ -163,7 +163,7 @@
 					"Position": [2,2],
 					"Shape": "1U",
 					"Label": {
-						"6",
+						"Glyph": "6",
 					}
 					"Sublabels": {
 						"", "", "",
@@ -176,7 +176,7 @@
 					"Position": [0,3],
 					"Shape": "1U",
 					"Label": {
-						"1",
+						"Glyph": "1",
 					}
 					"Sublabels": {
 						"", "", "",
@@ -189,7 +189,7 @@
 					"Position": [1,3],
 					"Shape": "1U",
 					"Label": {
-						"2",
+						"Glyph": "2",
 					}
 					"Sublabels": {
 						"", "", "",
@@ -202,7 +202,7 @@
 					"Position": [2,3],
 					"Shape": "1U",
 					"Label": {
-						"3",
+						"Glyph": "3",
 					}
 					"Sublabels": {
 						"", "", "",
@@ -216,7 +216,7 @@
 					"Stabilizer": "2U",
 					"Shape": "2U vertical",
 					"Label": {
-						"Enter",
+						"Glyph": "Enter",
 						"Position": [1.27,17.78],
 					}
 				},
@@ -226,7 +226,7 @@
 					"Stabilizer": "2U",
 					"Shape": "2U",
 					"Label": {
-						"0",
+						"Glyph": "0",
 					}
 					"Sublabels": {
 						"", "", "",
@@ -239,7 +239,7 @@
 					"Position": [2,4],
 					"Shape": "1U",
 					"Label": {
-						".",
+						"Glyph": ".",
 					}
 					"Sublabels": {
 						"", "", "",

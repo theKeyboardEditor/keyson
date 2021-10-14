@@ -1,4 +1,5 @@
-"Palette" {
+{
+	"Palette" {
 	"name": "sweetie-16",
 	"url": "https://lospec.com/palette-list/sweetie-16",
 	"colorMatchingProfile": "generic",
@@ -20,5 +21,6 @@
 		{"lgray": "0x94B0C2"}
 		{"gray":  "0x566C86"}
 		{"dgray": "0x333C57"}
-	]
+		]
+	}
 }
