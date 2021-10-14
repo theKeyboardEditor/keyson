@@ -26,6 +26,7 @@
 		"Keys Color": "white",
 		"Label Font":"sans",
 		"Sublabel Font":"sans",
+		"labelSizeUnits": ["px","pc","mm","thou","inch","meter"]
 		"Label Font Size": "9px",
 		"Sublabel Font Size": "7px",
 		"Label Color": "black",

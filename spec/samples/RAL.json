@@ -1,4 +1,5 @@
-"Palette" {
+{
+	"Palette" {
 	"name": "RAL",
 	"url": "https://www.easycalculation.com/colorconverter/ral-to-hex-table.php",
 	"colorMatchingProfile": "generic",
@@ -217,5 +218,6 @@
 		{"(RAL9018)Papyrus White":"#D7D7D7"}
 		{"(RAL9022)Pearl Light Grey(Metalic Color)":"#9C9C9C"}
 		{"(RAL9023)Pearl Dark Grey(Metalic Color)":"#828282"}
-	]
+		]
+	}
 }
