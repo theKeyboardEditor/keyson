@@ -5,22 +5,22 @@
 	"colorMatchingProfile": "generic",
 	"size": "16",
 	"squashes": [
-		{"black": "0x1A1C2C"}
-		{"violet":"0x5D275D"}
-		{"red":   "0xB13E53"}
-		{"orange":"0xEF7D57"}
-		{"yellow":"0xFFCD75"}
-		{"lime":  "0xA7F070"}
-		{"green": "0x38B764"}
-		{"teal":  "0x257179"}
-		{"dblue": "0x29366F"}
-		{"blue":  "0x3B5DC9"}
-		{"sky":   "0x41A6F6"}
-		{"cyan":  "0x73EFF7"}
-		{"white": "0xF4F4F4"}
-		{"lgray": "0x94B0C2"}
-		{"gray":  "0x566C86"}
-		{"dgray": "0x333C57"}
+		{"black": "0xFF1A1C2C"}
+		{"violet":"0xFF5D275D"}
+		{"red":   "0xFFB13E53"}
+		{"orange":"0xFFEF7D57"}
+		{"yellow":"0xFFFFCD75"}
+		{"lime":  "0xFFA7F070"}
+		{"green": "0xFF38B764"}
+		{"teal":  "0xFF257179"}
+		{"dblue": "0xFF29366F"}
+		{"blue":  "0xFF3B5DC9"}
+		{"sky":   "0xFF41A6F6"}
+		{"cyan":  "0xFF73EFF7"}
+		{"white": "0xFFF4F4F4"}
+		{"lgray": "0xFF94B0C2"}
+		{"gray":  "0xFF566C86"}
+		{"dgray": "0xFF333C57"}
 		]
 	}
 }

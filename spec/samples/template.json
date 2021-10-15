@@ -9,11 +9,11 @@
 		"Color Matching Profile": "generic",
 		"Size": "256",
 		"Colors": [
-		{"0"  : 0x000000},
-		{"1"  : 0xffffff},
-		{"2"  : 0x00ff00},
-		{"3"  : 0xff0000},
-		{"255": 0x0000ff},
+		{"0"  : "0x000000"},
+		{"1"  : "0xffffff"},
+		{"2"  : "0x00ff00"},
+		{"3"  : "0xff0000"},
+		{"255": "0x0000ff"},
 		]
 	},
 	"Keyboard": {
