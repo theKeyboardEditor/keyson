@@ -1,27 +1,12 @@
 package;
 
-/*
- * theKeyboardEditor file interfacing library
- * https://github.com/theKeyboardEditor/keyson
- */
-@:structInit
-typedef KeysonOptions = {
-	// optional (generic?) palette name for new layout
-	var paletteName:String;
-}
-
 /**
- * Here we are defining the file object it self:
- *
- * Everything found in the file is defined and structured here
- *
+ ** Conversion from a theKeyboardEditor keyboard design object into JSON string and back
+ **  https://github.com/theKeyboardEditor/keyson
  **/
 class Keyson {
-	// public static vars (once per session run)
 	// the version string for later compatibility tracking:
-	public static var version = "0.0.1-alpha";
-
-	// static vars (library local)
+	public static var version = "0.1-alpha";
 
 	// public vars (for the load and save content and flags)
 	public var name:String;
@@ -30,7 +15,6 @@ class Keyson {
 	public var comment:String;
 	public var colorTable:Palette;
 	public var board:Keyboard;
-	public var remapped:Keyboard; // in process place holder
 
 	// vars (local to the lib and file parsing)
 	var unit:Array<Unit>;
@@ -44,34 +28,6 @@ class Keyson {
 		colorTable = new Palette();
 		board = new Keyboard();
 	}
-
-	public function remap(calling:Palette) {
-		//TODO
-		// add trace for debugging
-		// we return our keyboard object but remapped to the supplied Palette object:
-		remapped = this.board; //object to be changed
-		// we iterate thru:
-		for (u in remapped.unit) { // in each unit:
-			for (keys in u.keys) { // for each key:
-				trace("color:",keys.keysColor);
-				// is the key color entry empty?
-				if (keys.keysColor != "") keys.keysColor = calling.colorMatch(keys.keysColor);
-				// is the resulting color equal to the more general assigned one?
-				if (keys.keysColor == this.board.keysColor) keys.keysColor = ""; // we rub it out if equal
-				// the same applies for sublabels
-				if (keys.sublabels.sublabelColor != "") keys.sublabels.sublabelColor = calling.colorMatch(keys.sublabels.sublabelColor);
-				if (keys.sublabels.sublabelColor == this.board.keysColor) keys.sublabels.sublabelColor = "";
-			}
-		}
-	this.board = remapped;
-	return remapped;
-	}
-
-	// functions (library local functions)
-	public function toString() {
-	// for every call we retur the updated object:
-	return this.name+","+this.author+","+this.license+","+this.comment+","+this.colorTable+","+this.board;
-	}
 }
 
 class Palette {
@@ -80,55 +36,45 @@ class Palette {
 	public var colorMatchingProfile:String;
 	public var size:Int;
 	public var squashes:Array<Color>;
-	public var matchingIndex:Array<Int>;
-
-	var match:String;
 
 	public function new() {
-		//TODO build in sanity checks since we might be getting human input here
 		this.name = "unknown";
 		this.url = "unknown";
 		this.colorMatchingProfile = "none";
-		this.size = 0;
-		this.squashes = [new Color("",0x00000000 )];
+		this.size = 1; // amount of colors
+		this.squashes = [new Color("","0x00000000" )];
 	}
-	public function colorMatch(color:String) {
-		// Return the closest match from self
-		match = color; //forr the time we default po ping/pong
-		// TODO
-		// first we make an index by:
-		// sum of absolute differences of the per byte values
-		// we sort off that index (really just seek the smallest member)
-		// section(s) of same index value are sorted by whole color integer value:
-		// lighter colors first
-		// we return the first member of the index list
-		return match;
-	}
-
 }
 
 class Color {
 	public var color:String;
-	public var value:Int;
+	public var value:String;
 
-	public function new(color:String,value:Int) {
+	public function new(color:String,value:String) {
 		this.color = color;
 		this.value = value;
 	}
 }
 
+/** Keyboard:
+ ** The entirety of an HID device behind a connecting point on a host:
+ ** A Split keyboard with a numpad and a joypad (4 sub units)
+ ** all interconnected by a TRRS to each other or
+ ** a common single unit keyboard
+ **/
 class Keyboard {
 	public var keyStep:Array<Float>;
 	public var stabilizerType:String;
 	public var switchType:String;
 	public var capSize:Array<Float>;
-	public var units:String;
+	public var units:String; // units of measurement
 	public var caseColor:String;
 	public var keysColor:String;
+	public var labelSizeUnits:String; // "px,pc,mm,thou"
 	public var labelFont:String;
 	public var sublabelFont:String;
-	public var labelFontSize:Int;
-	public var sublabelFontSize:Int;
+	public var labelFontSize:Float;
+	public var sublabelFontSize:Float;
 	public var labelColor:String;
 	public var labelPosition:Array<Float>;
 	public var sublabelColor:String;
@@ -145,10 +91,11 @@ class Keyboard {
 		this.units = "mm";
 		this.caseColor = "";
 		this.keysColor = "";
+		this.labelSizeUnits = "px"; // "px,pc,mm,thou"
 		this.labelFont = "unknown";
 		this.sublabelFont = "unknown";
-		this.labelFontSize = 0;
-		this.sublabelFontSize = 0;
+		this.labelFontSize = 12; // somewaht sane default
+		this.sublabelFontSize = 7; // questionably sane default
 		this.labelColor = "";
 		this.labelPosition = [0.0,0.0];
 		this.sublabelColor = "";
@@ -157,39 +104,11 @@ class Keyboard {
 		this.amountOfUnits = 1;
 		this.unit = [new Unit()];
 	}
-
-// commenting this out as we only need set if we need sanity checks (do we?)
-/*	public function set (	keyStep:Array<Float>, stabilizerType:String,
-							switchType:String, capSize:Array<Float>,units:String,
-							caseColor:String, keysColor:String,
-							labelFont:String, sublabelFont:String,
-							labelFontSize:Int, sublabelFontSize:Int,
-							labelColor:String, labelPosition:Array<Float>,
-							sublabelColor:String,
-							profile:String, keySculpt:String,
-							amountOfUnits:Int,
-							units:Array<Unit>) {
-		//TODO build in sanity checks since we might be getting human input here
-		this.keyStep = keyStep;
-		this.stabilizerType = stabilizerType;
-		this.switchType = switchType;
-		this.capSize = capSize;
-		this.units = units;
-		this.caseColor = caseColor;
-		this.keysColor = keysColor;
-		this.labelFont = labelFont;
-		this.sublabelFont = sublabelFont;
-		this.labelFontSize = labelFontSize;
-		this.labelColor = labelColor;
-		this.labelPosition = labelPosition;
-		this.sublabelColor = sublabelColor;
-		this.profile = profile;
-		this.keySculpt = keySculpt;
-		this.amountOfUnits = amountOfUnits;
-		this.units = units;
-	} */
 }
 
+/** The singular unit of keyboard: a numpad, an split keyboard's half or
+ ** the gamer's keypad - the (usually only?) phisical sub unit
+ **/
 class Unit {
 	public var unitID:Int;
 	public var designator:String;
@@ -208,6 +127,8 @@ class Unit {
 	}
 }
 
+/** The actual tactile unit of interaction
+ **/
 class Key {
 	public var keyID:Int;
 	public var position:Array<Int>;
@@ -231,9 +152,9 @@ class Key {
 		this.shape = shape; //"1U","2U","2U vertical","1.25U","1.5U","1.75U","2.25U","2.75U","ISO","BAE","6.25U","7.25U","3U","0.75U"
 		this.labelFont = "";
 		this.relativeRotationCenter = [0.0,0.0];
-		this.features = [];
+		this.features = []; //"Stepped","Window","Homing","Comment","Shadow","LED","OLED","LCD","Encoder","Trackpoint","Trackpad"
 		this.steppedTop = 0.0;
-		this.homingFeature = "";
+		this.homingFeature = ""; //"Bar", "Dot", "Sculpt"
 		this.keysColor = "";
 		this.label = label;
 		this.sublabels = new Sublabel();
@@ -241,6 +162,8 @@ class Key {
 	}
 }
 
+/** The sign/glyph on the unit
+ **/
 class KeyLabel {
 	// the Keyboard options or here define their own
 	public var keysColor:String;
@@ -264,6 +187,13 @@ class KeyLabel {
 	}
 }
 
+/** The secondary sign on the unit, usually with different properties
+ ** as shape, font, encoding...
+ **/
+
+ //TODO do we want actual sublabels or we better be served with
+ //peer equal individual glyphs in an array?
+
 class Sublabel {
 	// the Keyboard options or here define their own
 	public var sublabelFont:String;
@@ -271,7 +201,6 @@ class Sublabel {
 	public var sublabelColor:String;
 
 	public var positions:Array<String>; // the 9 positions on a key
-	// TODO do we want a lumped or a fine grained acces to sublabels?
 
 	public function new() {
 		sublabelFont = "";
@@ -280,7 +209,13 @@ class Sublabel {
 		positions = ["","","","","","","","",""];
 	}
 }
+/*
+ * Various key position features/replacements and their
+ * respective properties:
+ * */
 
+ /** The Actual Keyboard status led
+  **/
 class LEDFeature {
 	public var diameter:Float; // diameter usually 3.0 or 5.0 mm
 }
@@ -301,7 +236,7 @@ class EncoderFeature {
 
 class TrackpointFeature {
 	public var diameter:Float;
-	public var profile:String;
+	public var profile:String; //"Round","Square"
 
 	public function new() {
 		diameter = 0.0;
