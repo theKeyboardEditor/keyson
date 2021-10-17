@@ -328,7 +328,10 @@ class Test {
 		trace ("keeb name>>> "+keeb.name);
 		trace ("keeb author>>> "+keeb.author);
 		trace ("keeb colorTable name>>> "+keeb.board[0].keys[keeb.board[0].keys.length-1].keyId);
+		var newKnob = new Keyson.Key(20,"1U",[0,0],new Keyson.KeyLabel("tralalala"));
+		keeb.board[0].keys.push( newKnob );
 		trace ("\n");
+		trace ("keeb colorTable name>>> "+keeb.board[0].keys[keeb.board[0].keys.length-1].keyId);
 //		trace ("board.switchType:["+keeb.board.switchType+"]");
 
 }
