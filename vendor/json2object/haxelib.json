@@ -1,0 +1,14 @@
+{
+	"name": "json2object",
+	"url" : "https://github.com/elnabo/json2object/",
+	"license": "MIT",
+	"tags": ["json", "cross", "macro"],
+	"description": "Type safe Haxe/JSON (de)serializer",
+	"version": "3.9.0",
+	"releasenote": "Support for Haxe 4.2",
+	"contributors": ["elnabo", "_ibilon"],
+	"classPath": "src",
+	"dependencies": {
+		"hxjsonast": ""
+	}
+}

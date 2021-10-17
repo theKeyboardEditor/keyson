@@ -1,4 +1,6 @@
 --class-path src
+-cp vendor/json2object/src/
+-cp vendor/hxjsonast/src/
 --dce full
 --interp
 --main Test
