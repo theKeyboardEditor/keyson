@@ -9,6 +9,7 @@ typedef KeysonOptions = {
 	// optional (generic?) palette name for new layout
 	var paletteName:String;
 }
+
 /**
  * Here we are defining the file object it self:
  *
@@ -50,8 +51,8 @@ class Keyson {
 		// we return our keyboard object but remapped to the supplied Palette object:
 		remapped = this.board; //object to be changed
 		// we iterate thru:
-		for (unit in remapped.units) { // in each unit:
-			for (keys in unit.keys) { // for each key:
+		for (u in remapped.unit) { // in each unit:
+			for (keys in u.keys) { // for each key:
 				trace("color:",keys.keysColor);
 				// is the key color entry empty?
 				if (keys.keysColor != "") keys.keysColor = calling.colorMatch(keys.keysColor);
@@ -67,8 +68,10 @@ class Keyson {
 	}
 
 	// functions (library local functions)
-
+	public function toString() {
 	// for every call we retur the updated object:
+	return this.name+","+this.author+","+this.license+","+this.comment+","+this.colorTable+","+this.board;
+	}
 }
 
 class Palette {
@@ -132,7 +135,7 @@ class Keyboard {
 	public var profile:String;
 	public var keySculpt:String;
 	public var amountOfUnits:Int;
-	public var units:Array<Unit>;
+	public var unit:Array<Unit>;
 
 	public function new() { // empty default keyboard
 		this.keyStep = [0.0,0.0];
@@ -152,7 +155,7 @@ class Keyboard {
 		this.profile = "Cherry";
 		this.keySculpt = "R3";
 		this.amountOfUnits = 1;
-		this.units = [new Unit()];
+		this.unit = [new Unit()];
 	}
 
 // commenting this out as we only need set if we need sanity checks (do we?)

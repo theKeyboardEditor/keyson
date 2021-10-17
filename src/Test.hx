@@ -1,90 +1,12 @@
 package;
 
-typedef ColorData = {
-	var color:String;
-	var value:Int;
-}
-typedef PaletteData = {
-	var name:String;
-	var url:String;
-	var colorMatchingProfile:String;
-	var size:Int;
-	var squashes:Array<ColorData>;
-}
-typedef KeyLabelData = {
-	var keysColor:String;
-	var labelFont:String;
-	var labelFontSize:Int;
-	var labelColor:String;
-	var labelPosition:Array<Float>;
-	var profile:String;
-	var keySculpt:String;
-	var glyph:String;
-}
-typedef SublabelData = {
-	var sublabelFont:String;
-	var sublabelFontSize:Int;
-	var sublabelColor:String;
-	var positions:Array<String>;
-}
-typedef KeyData = {
-	var id:String;
-	var position:Array<Float>;
-	var stabilizer:String;
-	var angle:Float;
-	var shape:String;
-	var labelFont:String;
-	var relativeRotationCenter:Array<Float>;
-	var features:Array<String>;
-	var steppedTop:Float;
-	var homingFeature:String;
-	var keysColor:String;
-	var label:KeyLabelData;
-	var sublabel:SublabelData;
-}
-typedef UnitData = {
-	var unitID:String;
-	var designator:String;
-	var size:Int;
-	var keys:Array<KeyData>;
-}
-typedef KeyboardData = {
-	var keyStep:Array<Float>;
-	var switchType:String;
-	var stabilizerType:String;
-	var capSize:Array<Float>;
-	var units:String;
-	var caseColor:String;
-	var keysColor:String;
-	var labelFont:String;
-	var sublabelFont:String;
-	var labelSizeUnits:String;
-	var labelSize:Float;
-	var sublabelSize:Float;
-	var labelColor:String;
-	var labelPosition:Array<Float>;
-	var sublabelColor:String;
-	var profile:String;
-	var keySculpt:String;
-	var amountOfUnits:Int;
-	var unit:Array<UnitData>;
-}
-typedef KeysonData = {
-	var name:String;
-	var author:String;
-	var license:String;
-	var Comment:String;
-	var colorTable:PaletteData;
-	var board:KeyboardData;
-}
 
 class Test {
 	public static function main() {
 		trace (">>>We Are Testing...");
-		//TODO add tyedef:
-
+//		Keyson;
 		//The keyboard variable object to be:
-		var k1 = '{
+		var keyboardString1 = '{
 			"name": "Numpad",
 			"author": "cest73",
 			"license": "CC",
@@ -335,13 +257,11 @@ class Test {
 				]
 			}
 		}';
-		/**
-		TODO make all with the native Json built in class
-		**/
-		var keeb = haxe.Json.parse(k1);
+
+		var keeb = haxe.Json.parse(keyboardString1);
 
 		// The first palette:
-		var p1 = '{
+		var paletteString1 = '{
 		"pallete": {
 			"name":"Kids Crayons 16",
 			"url": "https://some.site.org",
@@ -367,7 +287,7 @@ class Test {
 				]
 			}
 		}';
-		var p2 ='{
+		var paletteString2 ='{
 		"palette": {
 			"name": "Sweetie-16",
 			"url": "https://lospec.com/palette-list/sweetie-16",
@@ -393,22 +313,25 @@ class Test {
 				]
 			}
 		}';
-		var assortment = haxe.Json.parse(p1);
+		var assortment = haxe.Json.parse(paletteString1);
 		trace ("assortment:"+assortment+"");
-
+		trace ("\n");
 
 		//The 2nd palette:
-		var assortment2 = haxe.Json.parse(p2);
+		var assortment2 = haxe.Json.parse(paletteString2);
 		trace ("assortment:"+assortment2+"");
+		trace ("\n");
 
-		var keeb:KeysonData = haxe.Json.parse(k1);
-		trace ("name:["+keeb.name+"]");
-		trace ("board.switchType:["+keeb.board.switchType+"]");
+//		var keeb:Keyson = haxe.Json.parse(keyboardString1);
+		var parser = new json2object.JsonParser<Keyson>();
+		var keeb:Keyson = parser.fromJson(keyboardString1);
+
+		trace ("keeb name>>> "+keeb.name);
+		trace ("keeb author>>> "+keeb.author);
+		trace ("keeb colorTable name>>> "+keeb.colorTable.name);
+		trace ("\n");
+//		trace ("board.switchType:["+keeb.board.switchType+"]");
 
 }
 }
-	function readfile(dest:String) {
-		//TODO open said file and return it as an array of lines
-		return; // content:Array<String>;
-	}
 
