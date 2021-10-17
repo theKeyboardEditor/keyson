@@ -109,8 +109,7 @@ class Keyboard {
 		this.size = 0; //          number of keys/elements
 		this.keys = [new Key(0,"1U",[0,0],new Keyson.KeyLabel("1") )];
 	}
-	public function addKey ( Unit ) {
-
+	public function addKey() {
 	}
 }
 
