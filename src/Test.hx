@@ -35,31 +35,31 @@ class Test {
 					{"navy"   : "0xFF000080"}
 				]
 			},
-			"board": {
-				"keyStep": [19.05, 19.05],
-				"stabilizerType": "Cherry",
-				"switchType": "Cherry MX/Gateron/Kailh",
-				"capSize": [18.5, 18.5],
-				"units": "mm",
-				"caseColor": "white",
-				"keysColor": "white",
-				"font":"sans",
-				"labelSizeUnits":"px",
-				"labelSize": 9,
-				"sublabelSize": 7,
-				"labelColor": "black",
-				"labelPosition": [1.27, 1.27],
-				"sublabelColor": "black",
-				"profile": "XDA",
-				"keySculpt": "R3",
-				"amountOfUnits": 1,
-				 "unit": [ {
-					"unitID": 1,
+			"board": [
+				{
+					"keyboardID": 0,
 					"designator": "Numpad",
+					"keyStep": [19.05, 19.05],
+					"stabilizerType": "Cherry",
+					"switchType": "Cherry MX/Gateron/Kailh",
+					"capSize": [18.5, 18.5],
+					"units": "mm",
+					"caseColor": "white",
+					"keysColor": "white",
+					"font":"sans",
+					"labelSizeUnits":"px",
+					"labelSize": 9,
+					"sublabelSize": 7,
+					"labelColor": "black",
+					"labelPosition": [1.27, 1.27],
+					"sublabelColor": "black",
+					"profile": "XDA",
+					"keySculpt": "R3",
+					"amountOfUnits": 1,
 					"size": 17,
 					"keys": [
 						{
-							"id": 0,
+							"keyId": 0,
 							"position": [0,0],
 							"shape": "1U",
 							"label": {
@@ -67,7 +67,7 @@ class Test {
 							}
 						},
 						{
-							"id": 1,
+							"keyId": 1,
 							"position": [1,0],
 							"shape": "1U",
 							"label": {
@@ -75,7 +75,7 @@ class Test {
 							}
 						},
 						{
-							"id": 2,
+							"keyId": 2,
 							"position": [2,0],
 							"shape": "1U",
 							"label": {
@@ -83,7 +83,7 @@ class Test {
 							}
 						},
 						{
-							"id": 3,
+							"keyId": 3,
 							"position": [3,0],
 							"shape": "1U",
 							"label": {
@@ -91,7 +91,7 @@ class Test {
 							}
 						},
 						{
-							"id": 4,
+							"keyId": 4,
 							"position": [0,1],
 							"shape": "1U",
 							"label": {
@@ -104,7 +104,7 @@ class Test {
 							]
 						},
 						{
-							"id": 5,
+							"keyId": 5,
 							"position": [1,1],
 							"shape": "1U",
 							"label": {
@@ -117,7 +117,7 @@ class Test {
 							]
 						},
 						{
-							"id": 6,
+							"keyId": 6,
 							"position": [2,1],
 							"shape": "1U",
 							"label": {
@@ -132,7 +132,7 @@ class Test {
 							]
 						},
 						{
-							"id": 7,
+							"keyId": 7,
 							"position": [3,1],
 							"Stabilizer": "2U",
 							"shape": "2U vertical",
@@ -142,7 +142,7 @@ class Test {
 							}
 						},
 						{
-							"id": 8,
+							"keyId": 8,
 							"position": [0,2],
 							"shape": "1U",
 							"label": {
@@ -155,7 +155,7 @@ class Test {
 							]
 						},
 						{
-							"id": 9,
+							"keyId": 9,
 							"position": [1,2],
 							"shape": "1U",
 							"Features": "Homing",
@@ -164,7 +164,7 @@ class Test {
 							}
 						},
 						{
-							"id": 10,
+							"keyId": 10,
 							"position": [2,2],
 							"shape": "1U",
 							"label": {
@@ -177,7 +177,7 @@ class Test {
 							]
 						},
 						{
-							"id": 11,
+							"keyId": 11,
 							"position": [0,3],
 							"shape": "1U",
 							"label": {
@@ -190,7 +190,7 @@ class Test {
 							]
 						},
 						{
-							"id": 12,
+							"keyId": 12,
 							"position": [1,3],
 							"shape": "1U",
 							"label": {
@@ -203,7 +203,7 @@ class Test {
 							]
 						},
 						{
-							"id": 13,
+							"keyId": 13,
 							"position": [2,3],
 							"shape": "1U",
 							"label": {
@@ -216,7 +216,7 @@ class Test {
 							]
 						},
 						{
-							"id": 14,
+							"keyId": 14,
 							"position": [3,3],
 							"Stabilizer": "2U",
 							"shape": "2U vertical",
@@ -226,7 +226,7 @@ class Test {
 							}
 						},
 						{
-							"id": 15,
+							"keyId": 15,
 							"position": [0,4],
 							"Stabilizer": "2U",
 							"shape": "2U",
@@ -240,7 +240,7 @@ class Test {
 							]
 						},
 						{
-							"id": 16,
+							"keyId": 16,
 							"position": [2,4],
 							"shape": "1U",
 							"label": {
@@ -254,8 +254,7 @@ class Test {
 						}
 					]
 				}
-				]
-			}
+			]
 		}';
 
 		var keeb = haxe.Json.parse(keyboardString1);
@@ -328,8 +327,11 @@ class Test {
 
 		trace ("keeb name>>> "+keeb.name);
 		trace ("keeb author>>> "+keeb.author);
-		trace ("keeb colorTable name>>> "+keeb.colorTable.name);
+		trace ("keeb colorTable name>>> "+keeb.board[0].keys[keeb.board[0].keys.length-1].keyId);
+		var newKnob = new Keyson.Key(20,"1U",[0,0],new Keyson.KeyLabel("tralalala"));
+		keeb.board[0].keys.push( newKnob );
 		trace ("\n");
+		trace ("keeb colorTable name>>> "+keeb.board[0].keys[keeb.board[0].keys.length-1].keyId);
 //		trace ("board.switchType:["+keeb.board.switchType+"]");
 
 }

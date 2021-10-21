@@ -14,11 +14,7 @@ class Keyson {
 	public var license:String;
 	public var comment:String;
 	public var colorTable:Palette;
-	public var board:Keyboard;
-
-	// vars (local to the lib and file parsing)
-	var unit:Array<Unit>;
-	var key:Array<Key>;
+	public var board:Array<Keyboard>;
 
 	public function new() { // initialize our object with sane defaults
 		name = "unknown";
@@ -26,7 +22,7 @@ class Keyson {
 		license = "CC";
 		comment = "empty";
 		colorTable = new Palette();
-		board = new Keyboard();
+		board = [new Keyboard()];
 	}
 }
 
@@ -63,6 +59,8 @@ class Color {
  ** a common single unit keyboard
  **/
 class Keyboard {
+	public var keyboardID:Int;
+	public var designator:String;
 	public var keyStep:Array<Float>;
 	public var stabilizerType:String;
 	public var switchType:String;
@@ -81,9 +79,13 @@ class Keyboard {
 	public var profile:String;
 	public var keySculpt:String;
 	public var amountOfUnits:Int;
-	public var unit:Array<Unit>;
+	public var position = [0,0];
+	public var angle:Float;
+	public var size:Int;
+	public var keys:Array<Key>;
 
 	public function new() { // empty default keyboard
+		this.designator = "default"; // "Master", "Slave", "Numpad" ...
 		this.keyStep = [0.0,0.0];
 		this.stabilizerType = "";
 		this.switchType = "";
@@ -102,35 +104,19 @@ class Keyboard {
 		this.profile = "Cherry";
 		this.keySculpt = "R3";
 		this.amountOfUnits = 1;
-		this.unit = [new Unit()];
-	}
-}
-
-/** The singular unit of keyboard: a numpad, an split keyboard's half or
- ** the gamer's keypad - the (usually only?) phisical sub unit
- **/
-class Unit {
-	public var unitID:Int;
-	public var designator:String;
-	public var position = [0,0];
-	public var angle:Float;
-	public var size:Int;
-	public var keys:Array<Key>;
-	public function new() {
-		this.unitID = 0; //        unique unit ID
-		this.designator = "default"; // "Master", "Slave", "Numpad" ...
 		this.position = [0,0]; // placement of the unit
 		this.angle = 0; //     rotation around the anchor point
 		this.size = 0; //          number of keys/elements
 		this.keys = [new Key(0,"1U",[0,0],new Keyson.KeyLabel("1") )];
-
+	}
+	public function addKey() {
 	}
 }
 
 /** The actual tactile unit of interaction
  **/
 class Key {
-	public var keyID:Int;
+	public var keyId:Int;
 	public var position:Array<Int>;
 	public var stabilizer:String;
 	public var angle:Float;
@@ -144,8 +130,8 @@ class Key {
 	public var label:KeyLabel;
 	public var sublabels:Sublabel;
 
-	public function new(keyID:Int, shape:String, position:Array<Int>, label:KeyLabel) {
-		this.keyID = keyID;  // unique key ID
+	public function new(keyId:Int, shape:String, position:Array<Int>, label:KeyLabel) {
+		this.keyId = keyId;  // unique key ID
 		this.position = position; // place on the unit
 		this.stabilizer = "None"; // "None","2U","2.25U","2.75U","6.25U","7.25U",(Custom Bar)"125.5"
 		this.angle = 0.0;
