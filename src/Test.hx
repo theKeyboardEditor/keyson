@@ -3,17 +3,21 @@ package;
 
 class Test {
     public static function main() {
+        trace (">>>We Are Testing...");
 // define the receiving objects first:
         var keeb:Keyson;
         var object2:Keyson;
         var object3:Keyson;
-        var tabulation:String = "    "; // keyson output indentation
-//define parser
-        var parser = new json2object.JsonParser<Keyson>();
-//define writer
-        var writer = new json2object.JsonWriter<Keyson>();
 
-            trace (">>>We Are Testing...");
+/* a "Keyson" is a key board wrapper object: it defines the physical layout and the
+ * metadata that makes a keyboard project:
+ * Author,
+ * Comments,
+ * License,
+ * Colors the author envisioned for the keyset ...
+ *
+ * ...things like that, and the particular keyboard layout of course
+ */
 
 //The keyboard variable object to be:
         var sample1 = '{
@@ -332,41 +336,44 @@ class Test {
 
 
 // parser a palette thru Keyson into a fully functional Keyson Object
-        object2 = parser.fromJson(sample2);
+        object2 = Keyson.parse(sample2);
 
         trace ("object name:"+object2.name+"");
         trace ("palette name:"+object2.colorTable.name+"");
         trace ("\n");
 
 //The 2nd palette:
-        object3 = parser.fromJson(sample3);
+        object3 = Keyson.parse(sample3);
 
         trace ("object name:"+object3.name+"");
         trace ("palette name:"+object3.colorTable.name+"");
 
-// parsing a whole keyboard
-        keeb = parser.fromJson(sample1);
+// parsing a entire keyboard project
+        keeb = Keyson.parse(sample1);
 
         trace ("keeb name>>> "+keeb.name);
         trace ("keeb author>>> "+keeb.author+"\n");
 
-// adding a key
-            trace ("\rkeeb colorTable length>>> "+keeb.board[0].keys[keeb.board[0].keys.length-1].keyId+"\n");
+// adding a key:
+        //how many keys?
+        trace ("\rkeeb colorTable length>>> "+keeb.board[0].keys[keeb.board[0].keys.length-1].keyId+"\n");
 
 // make a new key and append it with haxe native method
-// (showcasing tweaking individual key properties)
+//NOTE: .board[]. is an array of halves/numpads or orther devices split in more than one single case or unit
+// each of them can have individual position and angle compared to the others
+// this example is showcasing tweaking individual key properties on creation:
         var newKnob = new Keyson.Key(17, "1U", [0,0], new Keyson.KeyLabel("tralalala")); // ID, shape, position, label
         keeb.board[0].keys.push( newKnob );
 
         trace ("\rkeeb colorTable length>>> "+keeb.board[0].keys[keeb.board[0].keys.length-1].keyId+"\n");
 
-//make a new key with a native method
+//make a new key with Keyson native method
         keeb.board[0].addKey("1U",[12,12],"Test"); // shape, position, label
 
         trace ("\rkeeb colorTable length>>> "+keeb.board[0].keys[keeb.board[0].keys.length-1].keyId+"\n");
 
 // we recover the keyboard into a string
-        var outsample1 = writer.write(keeb,tabulation);
+        var outsample1 = Keyson.encode(keeb);
         trace ("Keyson: "+outsample1);
     }
 }
