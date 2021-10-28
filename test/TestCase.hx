@@ -9,9 +9,9 @@ class TestCase extends utest.Test {
 	var palette2:String = "";
 
 	public function setupClass() {
-		keyboard = sys.io.File.getContent("tests/keyboard.json");
-		palette1 = sys.io.File.getContent("tests/kidsCrayonsPallette.json");
-		palette2 = sys.io.File.getContent("tests/sweetie16Palette.json");
+		keyboard = sys.io.File.getContent("test/keyboard.json");
+		palette1 = sys.io.File.getContent("test/kidsCrayonsPallette.json");
+		palette2 = sys.io.File.getContent("test/sweetie16Palette.json");
 	}
 
 	function testMetadataParsing() {
@@ -45,7 +45,5 @@ class TestCase extends utest.Test {
 		// Check if it contains all 6 keys
 		Assert.equals(6, keeb.board[0].keys.length-1);
 		Assert.equals("TestKeyboard", keeb.name);
-
-		trace(Keyson.encode(keeb));
 	}
 }
