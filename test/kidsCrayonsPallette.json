@@ -1,0 +1,30 @@
+{
+	"name": "Palette",
+	"author": "cest73",
+	"license": "MIT",
+	"comment": "A simple palette for basic sample testing",
+	"colorTable": {
+		"name":"Kids Crayons 16",
+		"url": "https://some.site.org",
+		"colorMatchingProfile": "generic",
+		"size": 16,
+		"squashes": [
+			{"color":"black"  , "value":"0xFF000000"},
+			{"color":"white"  , "value":"0xFFffffff"},
+			{"color":"red"    , "value":"0xFFff0000"},
+			{"color":"lime"   , "value":"0xFF00ff00"},
+			{"color":"blue"   , "value":"0xFF0000ff"},
+			{"color":"yellow" , "value":"0xFFffff00"},
+			{"color":"cyan"   , "value":"0xFF00ffff"},
+			{"color":"magenta", "value":"0xFFff00ff"},
+			{"color":"silver" , "value":"0xFF808080"},
+			{"color":"gray"   , "value":"0xFF404040"},
+			{"color":"maroon" , "value":"0xFF800000"},
+			{"color":"olive"  , "value":"0xFF808000"},
+			{"color":"green"  , "value":"0xFF008000"},
+			{"color":"purple" , "value":"0xFF800080"},
+			{"color":"teal"   , "value":"0xFF008080"},
+			{"color":"navy"   , "value":"0xFF000080"}
+		]
+	}
+}

@@ -1,6 +1,8 @@
---class-path src
+--class-path test
+-cp src
 -cp vendor/json2object/src/
 -cp vendor/hxjsonast/src/
+-lib utest
 --dce full
 --cpp build
---main Test
+--main TestAll

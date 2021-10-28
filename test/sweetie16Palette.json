@@ -1,0 +1,30 @@
+{
+	"name": "Palette",
+	"author": "GrafxKid",
+	"license": "CC",
+	"comment": "A special palette borrowed for basic sample testing",
+	"colorTable": {
+		"name": "Sweetie-16",
+		"url": "http://grafxkid.tumblr.com/palettes",
+		"colorMatchingProfile": "generic",
+		"size": 16,
+		"squashes": [
+			{"color":"black" , "value":"0xFF1A1C2C"},
+			{"color":"violet", "value":"0xFF5D275D"},
+			{"color":"red"   , "value":"0xFFB13E53"},
+			{"color":"orange", "value":"0xFFEF7D57"},
+			{"color":"yellow", "value":"0xFFFFCD75"},
+			{"color":"lime"  , "value":"0xFFA7F070"},
+			{"color":"green" , "value":"0xFF38B764"},
+			{"color":"teal"  , "value":"0xFF257179"},
+			{"color":"dblue" , "value":"0xFF29366F"},
+			{"color":"blue"  , "value":"0xFF3B5DC9"},
+			{"color":"sky"   , "value":"0xFF41A6F6"},
+			{"color":"cyan"  , "value":"0xFF73EFF7"},
+			{"color":"white" , "value":"0xFFF4F4F4"},
+			{"color":"lgray" , "value":"0xFF94B0C2"},
+			{"color":"gray"  , "value":"0xFF566C86"},
+			{"color":"dgray" , "value":"0xFF333C57"}
+		]
+	}
+}
