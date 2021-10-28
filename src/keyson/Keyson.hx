@@ -15,7 +15,7 @@ class Keyson {
 	public var comment:String;
 	public var colorTable:Palette;
 	public var board:Array<Keyboard>;
-	public var tabulation:String = "    "; // keyson output indentation
+	@:jignored public static var tabulation:String = "	"; // keyson output indentation
 
 	public function new() { // initialize our object with sane defaults
 		name = "unknown";
@@ -32,13 +32,13 @@ class Keyson {
 	public static function parse(data:String) {
 		var parser = new json2object.JsonParser<Keyson>();
 		var object:Keyson;
-		object = parser.fromJson( data );
+		object = parser.fromJson(data);
 		return object;
 	}
 
-	public static function encode( object:Keyson ) {
+	public static function encode(object:Keyson ) {
 		var writer = new json2object.JsonWriter<Keyson>();
-		var data = writer.write( object, "    " );
+		var data = writer.write(object, tabulation);
 		return data;
 	}
 }
@@ -124,7 +124,7 @@ class Keyboard {
 		this.position = [0.0,0.0]; // placement of the unit
 		this.angle = [0,0,0]; //     rotation around the anchor point
 		this.size = 0; //          number of keys/elements
-		this.keys = [new Key(0,"1U",[0,0],new Keyson.KeyLabel("1") )];
+		this.keys = [];
 	}
 
 	public function addKey(shap:String,pos:Array<Float>,lab:String) {

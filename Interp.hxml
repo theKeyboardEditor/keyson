@@ -1,4 +1,4 @@
---class-path tests
+--class-path test
 -cp src
 -cp vendor/json2object/src/
 -cp vendor/hxjsonast/src/
