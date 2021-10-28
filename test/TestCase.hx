@@ -43,7 +43,7 @@ class TestCase extends utest.Test {
 		keeb.board[0].addKey("2U", [5, 0], "Backspace");
 
 		// Check if it contains all 6 keys
-		Assert.equals(6, keeb.board[0].keys.length-1);
+		Assert.equals(6, keeb.board[0].keys.length);
 		Assert.equals("TestKeyboard", keeb.name);
 	}
 }
