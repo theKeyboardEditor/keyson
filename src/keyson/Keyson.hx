@@ -96,8 +96,9 @@ class Keyboard {
 	public var profile:String;
 	public var keySculpt:String;
 	public var amountOfUnits:Int;
-	public var position:Array<Float>;
-	public var angle:Array<Float>; // one day we will be 3D
+	public var position:Array<Float>; // case/element position
+	public var angle:Array<Float>; // maybe one day we will be 3D
+	public var relativeRotationCenter:Array<Float>; // case center offset
 	public var size:Int;
 	public var keys:Array<Key>;
 
@@ -113,7 +114,7 @@ class Keyboard {
 		this.labelSizeUnits = "px"; // "px,pc,mm,thou"
 		this.labelFont = "unknown";
 		this.sublabelFont = "unknown";
-		this.labelFontSize = 12; // somewaht sane default
+		this.labelFontSize = 12; // somewhat sane default
 		this.sublabelFontSize = 7; // questionably sane default
 		this.labelColor = "";
 		this.labelPosition = [0.0,0.0];
