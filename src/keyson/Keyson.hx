@@ -167,7 +167,7 @@ class Key {
 		this.features = []; //"Stepped","Window","Homing","Spacer","Comment","Shadow","LED","OLED","LCD","Encoder","Trackpoint","Trackpad"
 		this.steppedTop = 0.0;
 		this.homingFeature = ""; //"Bar", "Dot", "Sculpt"
-		this.spacerSize = [0.0,0.0]  // in units of U (1 x 2 U)
+		this.spacerSize = [0.0,0.0];  // in units of U (1 x 2 U)
 		this.keysColor = "";
 		this.label = label;
 		this.sublabels = new Sublabel();
