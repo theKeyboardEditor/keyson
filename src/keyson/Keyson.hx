@@ -81,7 +81,7 @@ class Keyboard {
 	public var keyStep:Array<Float>;
 	public var stabilizerType:String;
 	public var switchType:String;
-	public var capSize:Array<Float>;
+	public var capSize:Array<Float>; //in units of measurement
 	public var units:String; // units of measurement
 	public var caseColor:String;
 	public var keysColor:String;
@@ -152,6 +152,7 @@ class Key {
 	public var steppedTop:Float;
 	public var homingFeature:String;
 	public var keysColor:String;
+    public var spacerSize:Array<Float>;
 	public var label:KeyLabel;
 	public var sublabels:Sublabel;
 
@@ -163,9 +164,10 @@ class Key {
 		this.shape = shape; //"1U","2U","2U vertical","1.25U","1.5U","1.75U","2.25U","2.75U","ISO","BAE","6.25U","7.25U","3U","0.75U"
 		this.labelFont = "";
 		this.relativeRotationCenter = [0.0,0.0];
-		this.features = []; //"Stepped","Window","Homing","Comment","Shadow","LED","OLED","LCD","Encoder","Trackpoint","Trackpad"
+		this.features = []; //"Stepped","Window","Homing","Spacer","Comment","Shadow","LED","OLED","LCD","Encoder","Trackpoint","Trackpad"
 		this.steppedTop = 0.0;
 		this.homingFeature = ""; //"Bar", "Dot", "Sculpt"
+		this.spacerSize = [0.0,0.0]  // in units of U (1 x 2 U)
 		this.keysColor = "";
 		this.label = label;
 		this.sublabels = new Sublabel();
