@@ -8,7 +8,7 @@
 		"url": "https://some.site.org",
 		"colorMatchingProfile": "generic",
 		"size": 16,
-		"squashes": [
+		"swatches": [
 			{"color":"black"  , "value":"0xFF000000"},
 			{"color":"white"  , "value":"0xFFffffff"},
 			{"color":"red"    , "value":"0xFFff0000"},
