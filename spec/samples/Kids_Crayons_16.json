@@ -4,7 +4,7 @@
 		"url": "https://some.site.org",
 		"colorMatchingProfile": "generic",
 		"size": "16",
-		"squashes": [
+		"swatches": [
 		{"black"  : "0xFF000000"},
 		{"white"  : "0xFFffffff"},
 		{"red"    : "0xFFff0000"},
