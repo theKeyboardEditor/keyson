@@ -4,7 +4,7 @@
 	"url": "https://lospec.com/palette-list/sweetie-16",
 	"colorMatchingProfile": "generic",
 	"size": "16",
-	"squashes": [
+	"swatches": [
 		{"black": "0xFF1A1C2C"}
 		{"violet":"0xFF5D275D"}
 		{"red":   "0xFFB13E53"}
