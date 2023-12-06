@@ -4,7 +4,7 @@
 	"url": "https://www.easycalculation.com/colorconverter/ral-to-hex-table.php",
 	"colorMatchingProfile": "generic",
 	"size": "213",
-	"squashes": [
+	"swatches": [
 		{"(RAL1000)Green Beige":"#BEBD7F"}
 		{"(RAL1001)Beige":"#C2B078"}
 		{"(RAL1002)Sand Yellow":"#C6A664"}
