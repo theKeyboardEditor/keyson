@@ -8,7 +8,7 @@
 		"URL:": "https://some.site.org",
 		"Color Matching Profile": "generic",
 		"Size": "16",
-		"Colors": [
+		"swatches": [
 		{"black"  : "0xFF000000"},
 		{"white"  : "0xFFffffff"},
 		{"red"    : "0xFFff0000"},
