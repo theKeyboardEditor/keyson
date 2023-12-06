@@ -8,7 +8,7 @@
 		"url": "http://grafxkid.tumblr.com/palettes",
 		"colorMatchingProfile": "generic",
 		"size": 16,
-		"squashes": [
+		"swatches": [
 			{"color":"black" , "value":"0xFF1A1C2C"},
 			{"color":"violet", "value":"0xFF5D275D"},
 			{"color":"red"   , "value":"0xFFB13E53"},
