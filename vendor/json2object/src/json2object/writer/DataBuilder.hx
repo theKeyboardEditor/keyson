@@ -35,7 +35,7 @@ using haxe.macro.ExprTools;
 using json2object.utils.TypeTools;
 
 class DataBuilder {
-
+	@:persistent
 	private static var counter = 0;
 	private static var writers = new Map<String, Type>();
 	private static var jcustom = ":jcustomwrite";
@@ -210,11 +210,22 @@ class DataBuilder {
 					}
 					assignations.push(assignation);
 
-					skips.push(
-						field.meta.has(':optional')
-							? macro $f_a == null
-							: macro false
-					);
+					if (field.meta.has(':optional')) {
+						switch (field.type) {
+							case TAbstract(t, params):
+								if (t.toString() == "Null") {
+									// Null<Bool>
+									skips.push(macro $f_a == null);
+								} else {
+									// Bool
+									skips.push(macro false);
+								}
+							default:
+								skips.push(macro $f_a == null);
+						}
+					} else {
+						skips.push(macro false);
+					}
 
 				default:
 			}
@@ -409,7 +420,7 @@ class DataBuilder {
 				switch(t.module) {
 					case "String":
 						makeStringWriter();
-					case "Array":
+					case "Array" | "List" | "haxe.ds.List":
 						if (p.length == 1 && p[0] != null) {
 							makeArrayWriter(p[0], c);
 						}
@@ -455,6 +466,9 @@ class DataBuilder {
 				else {
 					if (t.meta.has(":enum")) {
 						makeAbstractEnumWriter(type.applyTypeParameters(t.params, p));
+					}
+					else if (t.meta.has(":coreType")) {
+						Context.fatalError("json2object: Parser of coreType ("+t.name+") are not generated", Context.currentPos());
 					}
 					else {
 						var ap = t.type.applyTypeParameters(t.params, p);

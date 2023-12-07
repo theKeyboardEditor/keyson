@@ -40,9 +40,10 @@ typedef ParserInfo = {packs:Array<String>, clsName:String}
 
 class DataBuilder {
 
+	@:persistent
 	private static var counter = 0;
 	private static var parsers = new Map<String, Type>();
-	private static var callPosition:Null<haxe.macro.Position> = null;
+	private static var callPosition:Null<Position> = null;
 	private static var jcustom = ":jcustomparse";
 
 	private static function notNull(type:Type):Type {
@@ -156,6 +157,30 @@ class DataBuilder {
 			}
 		} else {
 			macro value = cast loadJsonArrayValue(a, new $cls(errors, putils, THROW).loadJson, variable);
+		}
+
+		changeFunction("loadJsonArray", parser, e);
+		changeFunction("loadJsonNull", parser, macro {value = null;});
+	}
+
+	public static function makeListParser(parser:TypeDefinition, subType:Type, baseParser:BaseType) {
+		var cls = { name:baseParser.name, pack:baseParser.pack, params:[TPType(subType.toComplexType())]};
+		var list = {name:"List", pack:[#if (haxe_ver >= 4)"haxe", "ds"#end], params:[TPType(subType.toComplexType())]};
+
+		var e = macro value = {
+			var parser = new $cls(errors, putils, THROW);
+			var res = new $list();
+			for (j in a) {
+				try {
+					res.add(parser.loadJson(j, variable));
+				}
+				catch (e:json2object.Error.InternalError) {
+					if (e != ParsingThrow) {
+						throw e;
+					}
+				}
+			}
+			res;
 		}
 
 		changeFunction("loadJsonArray", parser, e);
@@ -371,7 +396,7 @@ class DataBuilder {
 					}
 
 					if (caseValue == null) {
-						caseValue = { expr: EConst(CString(${field.name})), pos: Context.currentPos()};
+						caseValue = { expr: EConst(CString(field.name)), pos: Context.currentPos()};
 					}
 
 					cases.push({ expr: assignation, guard: null, values: [caseValue] });
@@ -393,7 +418,7 @@ class DataBuilder {
 					else {
 						var e = switch(field.type) {
 							case TAbstract(_.get() => t, _) if (t.name == "Any"): macro null;
-							case TDynamic(_): macro null;
+							case TLazy(_) | TDynamic(_): macro null;
 							default: macro new $f_cls([], putils, NONE).loadJson({value:JNull, pos:{file:"",min:0, max:1}});
 						}
 						baseValues.push({field:field.name, expr:e #if (haxe_ver >= 4) , quotes:Unquoted #end});
@@ -587,7 +612,7 @@ class DataBuilder {
 							blockExpr.push(macro value = cast ${subExpr});
 
 							var lil_expr:Expr = {expr: EBlock(blockExpr), pos:Context.currentPos()};
-							internObjectCases.push({ expr: lil_expr, guard: null, values: [{ expr: EConst(CString($v{n})), pos: Context.currentPos()}] });
+							internObjectCases.push({ expr: lil_expr, guard: null, values: [{ expr: EConst(CString(n)), pos: Context.currentPos()}] });
 
 
 						default:
@@ -726,16 +751,16 @@ class DataBuilder {
 
 		switch (type) {
 			case TAbstract(_.get()=>t, p):
-
 				var from = (t.from.length == 0) ? [{t:t.type, field:null}] : t.from;
 				var i = 0;
 				for(fromType in from) {
-					switch (fromType.t.followWithAbstracts()) {
+					var fromTypeT = fromType.t.applyTypeParameters(t.params, p);
+					switch (fromTypeT.followWithAbstracts()) {
 						case TInst(_.get()=>st, sp):
 							if (st.module == "String") {
 								if (i == 0) { makeStringParser(parser); }
 								else {
-									var cls = {name:baseParser.name, pack:baseParser.pack, params:[TPType(fromType.t.toComplexType())]};
+									var cls = {name:baseParser.name, pack:baseParser.pack, params:[TPType(fromTypeT.toComplexType())]};
 									changeFunction("loadJsonString",
 										parser,
 										macro {
@@ -761,7 +786,7 @@ class DataBuilder {
 									makeArrayParser(parser,subType.followWithAbstracts(), baseParser);
 								}
 								else if (isBaseType(subType.followWithAbstracts())) {
-									var aParams = switch (fromType.t.followWithAbstracts()) {
+									var aParams = switch (fromTypeT.followWithAbstracts()) {
 										case TInst(r,_): [TPType(TInst(r,[subType]).toComplexType())];
 										default:[];
 									}
@@ -781,7 +806,7 @@ class DataBuilder {
 							}
 							else {
 								if (i == 0) {
-									var t = fromType.t;
+									var t = fromTypeT;
 									if (st.isPrivate) {
 										var privateType = TypeUtils.copyType(st);
 										t = Context.getType(privateType.name);
@@ -819,12 +844,12 @@ class DataBuilder {
 							}
 						case TAbstract(_.get()=>st, sp):
 							if (st.module == "StdTypes") {
-								var cls = {name:baseParser.name, pack:baseParser.pack, params:[TPType(fromType.t.toComplexType())]};
+								var cls = {name:baseParser.name, pack:baseParser.pack, params:[TPType(fromTypeT.toComplexType())]};
 								switch (st.name) {
 									case "Int":
 										if (!hasFromFloat) {
 											if (i == 0) {
-												makeIntParser(parser, fromType.t);
+												makeIntParser(parser, fromTypeT);
 											}
 											else {
 												changeFunction("loadJsonNumber",
@@ -839,7 +864,7 @@ class DataBuilder {
 										}
 									case "Float":
 										if (i == 0) {
-												makeFloatParser(parser, fromType.t);
+												makeFloatParser(parser, fromTypeT);
 										}
 										else {
 											changeFunction("loadJsonNumber",
@@ -854,7 +879,7 @@ class DataBuilder {
 										hasOneFrom = true;
 									case "Bool":
 										if (i == 0) {
-											makeBoolParser(parser, fromType.t);
+											makeBoolParser(parser, fromTypeT);
 										}
 										else {
 											changeFunction("loadJsonBool",
@@ -884,7 +909,7 @@ class DataBuilder {
 							}
 						case TAnonymous(_.get()=>st):
 							if (i == 0) {
-								var cls = {name:baseParser.name, pack:baseParser.pack, params:[TPType(fromType.t.toComplexType())]};
+								var cls = {name:baseParser.name, pack:baseParser.pack, params:[TPType(fromTypeT.toComplexType())]};
 									changeFunction("loadJsonObject", parser, macro {
 										value = cast new $cls(errors, putils, NONE).loadJson(
 											{value:JObject(o), pos:putils.revert(pos)},
@@ -909,7 +934,6 @@ class DataBuilder {
 	}
 
 	public static function makeParser(c:BaseType, type:Type, ?base:Type=null) {
-
 		if (base == null) { base = type; }
 
 		var parserMapName = base.toString();
@@ -986,6 +1010,8 @@ class DataBuilder {
 						makeStringParser(parser);
 					case "Array" if (p.length == 1 && p[0] != null):
 						makeArrayParser(parser, p[0], c);
+					case "List" | "haxe.ds.List" if (p.length == 1 && p[0] != null):
+						makeListParser(parser, p[0], c);
 					case _:
 						switch (t.kind) {
 							case KTypeParameter(_):
@@ -1028,6 +1054,9 @@ class DataBuilder {
 				else {
 					if (t.meta.has(":enum")) {
 						makeAbstractEnumParser(parser, type.applyTypeParameters(t.params, p), c);
+					}
+					else if (t.meta.has(":coreType")) {
+						Context.fatalError("json2object: Parser of coreType ("+t.name+") are not generated", Context.currentPos());
 					}
 					else {
 						makeAbstractParser(parser, type.applyTypeParameters(t.params, p), c);
