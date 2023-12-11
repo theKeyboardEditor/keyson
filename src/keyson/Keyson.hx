@@ -147,6 +147,7 @@ class Key {
 	public var stabilizer: String;
 	public var angle: Float;
 	public var shape: String;
+	public var keyShape: Shape;
 	public var labelFont: String;
 	public var relativeRotationCenter: Array<Float>;
 	public var features: Array<String>;
@@ -162,7 +163,8 @@ class Key {
 		this.position = position; // place on the unit
 		this.stabilizer = "None"; // "None","2U","2.25U","2.75U","6.25U","7.25U",(Custom Bar)"125.5"
 		this.angle = 0.0;
-		this.shape = shape; // "1U","2U","2U vertical","1.25U","1.5U","1.75U","2.25U","2.75U","ISO","BAE","6.25U","7.25U","3U","0.75U"
+		this.shape = new shape; // "1U","2U","2Uv","1.25U","1.5U","1.75U","2.25U","2.75U","ISO","BAE","6.25U","7.25U","3U","0.75U"
+		this.keyShape = new Shape (shape);
 		this.labelFont = "";
 		this.relativeRotationCenter = [0.0, 0.0];
 		this.features = []; // "Stepped","Window","Homing","Spacer","Comment","Shadow","LED","OLED","LCD","Encoder","Trackpoint","Trackpad"
@@ -172,6 +174,33 @@ class Key {
 		this.keysColor = "";
 		this.label = label;
 		this.sublabels = new Sublabel();
+	}
+}
+
+class keyShape {
+	public var name: String; // should not be omitteed, if "1U" should initialize an 1U keycap
+	public var insular: String; // NSEW or empty - where the empty spacer connects to the keyboard body
+	public var keyCave: Array<Int>; // 0,0,100,100 for 1U
+	public var steppedPlate: Array<Int>; // none if empty, 0,0,175,100 for CAPS key for instance
+	public var shapedL: Array<Int>; // cutout top left corner and sizes: 0,100,25,200 for ISO enter
+	public var window: Array<Int>; // coords and sizes of the LED cutout (dark gray?)
+	public var homing: Array<Int>; // coords and sizes, if array has only one size it's a scoped keycap, if 4 it's a square on top of it
+	public var topSurface: Array<Int>; // coords and sizes of the top of the keycap - for OEM and cherry it is leaning north
+	public var circularEncoder: Array<Int>; // coords and sizes, do we want a cogged circle?
+	public var barellEncoder: Array<Int>; // coords and sizes, do we want a notched cylinder?
+	public var display: Array<Int>; // coords and sizes of an OLED
+	public var topRadius: Array<Int>; // corners on the inner shape if single it's equal on all four
+	public var bottomRadius: Array<Int>; // corners on the outer shape if single it's equal on all four
+	public var keyCapGap: Array<Int>; // how much gap there is around each keycap
+
+	public function new( name: String, ?keyCave: Array<Int>, ?topSurface: Array<Int>, ?topRadius: Array<Int>, ?bottomRadius: Array<Int>, ?keyCapGap: Array<Int>) {
+		// TODO new shape could check known names for some common sizes here:
+		this.name = "1U";
+		this.keyCave = [0,0,100,100];
+		this.topSurface = [10,5,90,85];
+		this.topRadius = [10];
+		this.bottomRadius = [6];
+		this.keyCapGap = [2];
 	}
 }
 
