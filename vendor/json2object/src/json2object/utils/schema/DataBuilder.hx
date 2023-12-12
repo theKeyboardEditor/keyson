@@ -318,7 +318,7 @@ class DataBuilder {
 				switch (t.module) {
 					case "String":
 						return JTSimple("string");
-					case "Array" if (p.length == 1 && p[0] != null):
+					case "Array" | "List" | "haxe.ds.List" if (p.length == 1 && p[0] != null):
 						return JTArray(makeSchema(p[0], definitions));
 					default:
 						makeObjectSchema(type, name, definitions);
@@ -353,7 +353,7 @@ class DataBuilder {
 				makeEnumSchema(type.applyTypeParameters(t.params, p), definitions);
 			case TType(_.get()=>t, p):
 				var _tmp = makeSchema(t.type.applyTypeParameters(t.params, p), definitions, name);
-				if (t.name != "Null") {
+				if (t.name != "Null" && t.name != "List") {
 					if (t.doc != null) {
 						define(name, describe(definitions.get(name), t.doc), definitions);
 					}
