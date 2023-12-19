@@ -19,7 +19,7 @@ jobs:
         with:
           haxe-version: 4.3.3
       
-      - run: haxelib install hxcpp 4.3.3 
+      - run: haxelib install hxcpp 4.3.2 
       - run: haxelib install utest 1.13.2
       
       - name: Test with the hxcpp target
