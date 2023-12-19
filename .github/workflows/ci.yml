@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - master
-      - staging
-      - trying
 
 jobs:
   test:
@@ -19,13 +17,10 @@ jobs:
       - name: Setup Haxe
         uses: krdlab/setup-haxe@v1.1.5
         with:
-          haxe-version: 4.2.3
+          haxe-version: 4.3.3
       
-      - run: haxelib install hxcpp 4.2.1 
+      - run: haxelib install hxcpp 4.3.3 
       - run: haxelib install utest 1.13.2
-
-      - name: Test with the interp interpreter
-        run: haxe Interp.hxml
       
       - name: Test with the hxcpp target
-        run: haxe Native.hxml
+        run: haxe Test.hxml
